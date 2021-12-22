@@ -1,0 +1,1204 @@
+*,
+*::after,
+*::before {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+  cursor: default;
+  margin: 0;
+  padding: 0 auto;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+html {
+  background-color: #f2f3f4;
+  height: 100%;
+  width: 100%; }
+
+body {
+  padding: 5px 5px;
+  overflow-x: auto;
+  overflow-y: hidden; }
+
+.menu {
+  position: relative;
+  margin: 5px -5px 0;
+  padding: 5px 5px;
+  width: 119.4rem;
+  height: 1rem;
+  color: grey;
+  background-color: white; }
+
+.menu-list {
+  list-style: none;
+  width: 500px;
+  margin: 0;
+  padding: 0; }
+
+.menu-items {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border: 0;
+  float: left;
+  overflow: auto; }
+  .menu-items + .menu-items {
+    margin-left: 15px; }
+
+.side-menu {
+  float: left;
+  background-color: #f2f3f4;
+  margin: 0 0 0 -12.7rem;
+  width: 17.5rem;
+  height: 62rem; }
+
+.submenu {
+  list-style: none;
+  margin-left: -1rem; }
+
+.menu-div-1 {
+  padding: 0 auto; }
+
+.menu-div-2 {
+  margin-top: 3rem;
+  margin-left: -2rem; }
+
+.menu-div__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-left: 0.75rem;
+  margin-bottom: 0.5rem; }
+
+.menu-div-3 {
+  margin-top: 2rem; }
+
+.menu-div-4 {
+  margin-top: 1rem;
+  margin-left: 0.5rem; }
+
+.menu-list {
+  padding: 3px 0; }
+  .menu-list-collapseable {
+    font-size: 1.1rem;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem; }
+  .menu-list-noncollapseable {
+    font-size: 1.1rem;
+    margin-left: -0.5rem;
+    margin-right: 0.4rem; }
+
+.menu-no-3 {
+  list-style: none;
+  margin-left: -1rem; }
+
+.id-div {
+  margin: 0;
+  padding: 0;
+  width: 10.5rem;
+  padding: 1rem 0.5rem; }
+  .id-div__content {
+    float: left; }
+    .id-div__content.email {
+      font-size: 0.75rem; }
+
+li.menu-item {
+  position: relative;
+  height: 1.2rem;
+  justify-content: center;
+  list-style: none;
+  float: none; }
+  li.menu-item + li.menu-item {
+    padding-top: 0.75rem; }
+
+.menu-title {
+  padding: 0.35rem 2.3rem; }
+
+.quick-func--div__content {
+  float: left; }
+
+.title,
+.email {
+  padding: 0 0.75rem 0; }
+
+.content-header {
+  height: 4rem;
+  width: 119.6rem;
+  background-color: white;
+  color: black; }
+  .content-header__item {
+    float: right;
+    margin-top: 1.5rem; }
+    .content-header__item > div > span {
+      transform: scale(0.8, 0.8) !important;
+      right: -20px !important;
+      top: -12px !important; }
+    .content-header__item img {
+      float: right;
+      width: 10px; }
+    .content-header__item:first-child {
+      margin-right: 2rem; }
+    .content-header__item:not(:last-child) {
+      margin-left: 2rem; }
+
+.menuitem {
+  top: 50%; }
+  .menuitem__3-popover {
+    opacity: 0;
+    z-index: 50;
+    position: absolute !important;
+    right: 8vw !important;
+    top: 14vh !important;
+    visibility: hidden;
+    position: absolute;
+    right: 1rem;
+    top: 4.5rem;
+    height: 20rem;
+    width: 18rem;
+    background-color: #fff;
+    transform: translate(0, 10px);
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+    .menuitem__3-popover::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: 1.1rem;
+      top: -8px;
+      border-style: solid;
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent #fff transparent;
+      transition-duration: 0.3s;
+      transition-property: transform; }
+  .menuitem__3-wrapper .menuitem__3-popover {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 2s; }
+  .menuitem__3-wrapper:hover .menuitem__3-popover,
+  .menuitem__3-wrapper:active .menuitem__3-popover .menuitem__3-wrapper:focus .menuitem__3-popover {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000;
+    transform: translate(0, -20px);
+    transition: all 0.5s ease-in; }
+
+.dashboard {
+  position: absolute;
+  left: 17.5rem;
+  background-color: #f8f9fa;
+  width: 102.5rem;
+  height: 62rem; }
+
+.card {
+  background-color: white;
+  display: inline-block;
+  padding: 30px 20px;
+  margin: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s; }
+  .card-email {
+    display: block;
+    height: 180px;
+    width: 300px; }
+  .card-shift_noti {
+    display: block;
+    height: 180px;
+    width: 400px; }
+  .card-gov_noti, .card-kind_noti {
+    display: block;
+    height: 500px;
+    width: 350px; }
+  .card-daily, .card-corona, .card-work_check, .card-service_center {
+    display: block;
+    width: 330px;
+    height: 340px; }
+  .card__email_sender-1 {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 12px; }
+  .card__email_sender-2 {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 12px; }
+  .card__email_content-1 {
+    margin-top: 8px;
+    font-size: 14px; }
+  .card__email_content-2 {
+    margin-top: 8px;
+    font-size: 14px; }
+  .card__email_time-1 {
+    font-size: 12px;
+    padding-left: 10px; }
+  .card__email_time-2 {
+    font-size: 12px;
+    padding-left: 10px; }
+  .card__shift_noti_day-1 {
+    font-size: 12px;
+    align-self: flex-start; }
+  .card__shift_noti_day-2 {
+    font-size: 12px;
+    align-self: flex-start; }
+  .card__shift_noti_day-3 {
+    font-size: 12px;
+    align-self: flex-start; }
+  .card__gov_noti_sender-1, .card__kind_noti_sender-1, .card__corona_sender-1, .card__work_check_sender-1 {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 12px; }
+  .card__gov_noti_sender-2, .card__kind_noti_sender-2, .card__corona_sender-2, .card__work_check_sender-2 {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 12px; }
+  .card__gov_noti_sender-3, .card__kind_noti_sender-3, .card__corona_sender-3, .card__work_check_sender-3 {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 12px; }
+  .card__gov_noti_sender-4, .card__kind_noti_sender-4, .card__corona_sender-4, .card__work_check_sender-4 {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 12px; }
+  .card__gov_noti_sender-5, .card__kind_noti_sender-5, .card__corona_sender-5, .card__work_check_sender-5 {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 12px; }
+  .card__gov_noti_sender-6, .card__kind_noti_sender-6, .card__corona_sender-6, .card__work_check_sender-6 {
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 12px; }
+  .card__gov_noti_content-1, .card__kind_noti_content-1, .card__corona_content-1, .card__work_check_content-1 {
+    margin-top: 8px;
+    font-size: 14px; }
+  .card__gov_noti_content-2, .card__kind_noti_content-2, .card__corona_content-2, .card__work_check_content-2 {
+    margin-top: 8px;
+    font-size: 14px; }
+  .card__gov_noti_content-3, .card__kind_noti_content-3, .card__corona_content-3, .card__work_check_content-3 {
+    margin-top: 8px;
+    font-size: 14px; }
+  .card__gov_noti_content-4, .card__kind_noti_content-4, .card__corona_content-4, .card__work_check_content-4 {
+    margin-top: 8px;
+    font-size: 14px; }
+  .card__gov_noti_content-5, .card__kind_noti_content-5, .card__corona_content-5, .card__work_check_content-5 {
+    margin-top: 8px;
+    font-size: 14px; }
+  .card__gov_noti_content-6, .card__kind_noti_content-6, .card__corona_content-6, .card__work_check_content-6 {
+    margin-top: 8px;
+    font-size: 14px; }
+  .card__gov_noti_time-1, .card__kind_noti_time-1, .card__corona_time-1, .card__work_check_time-1 {
+    font-size: 12px;
+    padding-left: 10px; }
+  .card__gov_noti_time-2, .card__kind_noti_time-2, .card__corona_time-2, .card__work_check_time-2 {
+    font-size: 12px;
+    padding-left: 10px; }
+  .card__gov_noti_time-3, .card__kind_noti_time-3, .card__corona_time-3, .card__work_check_time-3 {
+    font-size: 12px;
+    padding-left: 10px; }
+  .card__gov_noti_time-4, .card__kind_noti_time-4, .card__corona_time-4, .card__work_check_time-4 {
+    font-size: 12px;
+    padding-left: 10px; }
+  .card__gov_noti_time-5, .card__kind_noti_time-5, .card__corona_time-5, .card__work_check_time-5 {
+    font-size: 12px;
+    padding-left: 10px; }
+  .card__gov_noti_time-6, .card__kind_noti_time-6, .card__corona_time-6, .card__work_check_time-6 {
+    font-size: 12px;
+    padding-left: 10px; }
+  .card__daily-date-1 {
+    width: 50px; }
+  .card__daily-date-2 {
+    width: 50px; }
+  .card__daily-date-3 {
+    width: 50px; }
+  .card__daily-date-4 {
+    width: 50px; }
+  .card__service_center-message_bubble-chatbot {
+    position: relative;
+    width: 150px;
+    background-color: skyblue;
+    color: white;
+    padding: 3px 5px 3px;
+    border-radius: 3px;
+    margin-left: 2px; }
+    .card__service_center-message_bubble-chatbot-tip {
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 10px;
+      left: -5px;
+      border-style: solid;
+      border-width: 3px 6px 3px 0;
+      border-color: transparent skyblue transparent transparent; }
+  .card__service_center-message_bubble-me {
+    word-break: break-all;
+    width: fit-content;
+    position: relative;
+    background-color: #ffe135;
+    color: white;
+    padding: 3px 5px 3px;
+    border-radius: 3px;
+    margin-left: 2px; }
+    .card__service_center-message_bubble-me-tip {
+      position: absolute;
+      width: 0;
+      height: 0;
+      bottom: 10px;
+      right: -5px;
+      border-style: solid;
+      border-width: 3px 0 3px 6px;
+      border-color: transparent transparent transparent #ffe135; }
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+
+.wrapper-class {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 4rem; }
+
+.editor {
+  height: 500px !important;
+  border: 1px solid #f1f1f1 !important;
+  padding-top: 20px !important;
+  border-radius: 2px !important; }
+
+.chat_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 80vh; }
+  .chat_wrap .header {
+    background: #f2f3f4; }
+  .chat_wrap .chat__class {
+    font-size: 18px;
+    font-weight: 500; }
+  .chat_wrap .chat__sender {
+    font-size: 12px; }
+  .chat_wrap .chat__section {
+    padding: 10px; }
+    .chat_wrap .chat__section ul {
+      padding-left: 0px;
+      list-style: none; }
+      .chat_wrap .chat__section ul li > div {
+        font-size: 13px; }
+        .chat_wrap .chat__section ul li > div .sender {
+          font-weight: bold; }
+        .chat_wrap .chat__section ul li > div .message {
+          width: 8rem;
+          word-break: break-all;
+          padding: 10px;
+          text-align: center;
+          color: white; }
+  .chat_wrap .input-div {
+    background-color: #fff;
+    border: 1px solid #bbb; }
+  .chat_wrap .input-div > textarea {
+    width: 100%;
+    outline: none;
+    padding: 10px; }
+
+.agreementmanagement {
+  position: absolute;
+  left: 17.5rem;
+  background-color: #f8f9fa;
+  width: 102.5rem;
+  height: 62rem; }
+  .agreementmanagement .classname {
+    float: left;
+    border: 0.5px solid lightgray;
+    padding: 1rem 1.7rem; }
+    .agreementmanagement .classname:not(:first-child) {
+      margin-left: 2px; }
+  .agreementmanagement__image {
+    float: left; }
+  .agreementmanagement__title {
+    float: left;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 5px;
+    margin-top: 3px; }
+  .agreementmanagement-div-1 {
+    margin-top: 3rem;
+    margin-left: 5rem; }
+  .agreementmanagement-div-2 {
+    position: absolute;
+    float: none;
+    top: 8rem;
+    left: 5rem; }
+  .agreementmanagement-div-3 {
+    position: absolute;
+    float: none;
+    top: 14rem;
+    left: 5rem;
+    height: 30rem;
+    overflow: hidden;
+    overflow-y: scroll; }
+  .agreementmanagement__parent-list-title {
+    padding: 1rem 11.7rem 1rem 1.5rem;
+    border-top: 3px solid lightgray;
+    border-bottom: 3px solid lightgray; }
+    .agreementmanagement__parent-list-title.fixed {
+      display: flex;
+      top: 0;
+      left: 0; }
+  .agreementmanagement__parent-list-items {
+    height: 26.5rem;
+    overflow: auto;
+    overflow-y: none; }
+  .agreementmanagement__parent-list-item {
+    padding: 1rem 11.7rem 1rem 1.5rem; }
+    .agreementmanagement__parent-list-item + .agreementmanagement__parent-list-item {
+      border-top: 0.5px solid lightgray; }
+    .agreementmanagement__parent-list-item-button {
+      position: absolute;
+      float: left; }
+      .agreementmanagement__parent-list-item-button-0 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-1 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-2 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-3 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-4 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-5 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-6 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-7 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-8 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-9 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-10 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .agreementmanagement__parent-list-item-button-11 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+  .agreementmanagement-div-4 {
+    position: absolute;
+    top: 8rem;
+    left: 30rem;
+    height: 30rem; }
+    .agreementmanagement-div-4__header {
+      background-color: #f4f4f6;
+      border: 2.5px solid lightgray;
+      width: 30rem;
+      height: 5rem; }
+    .agreementmanagement-div-4__title {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      font-size: 1.4rem;
+      font-weight: 700; }
+    .agreementmanagement-div-4__subtitle {
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      font-size: 0.8rem;
+      overflow: hidden;
+      color: gray; }
+    .agreementmanagement-div-4__items {
+      height: 30rem;
+      border: 2.5px solid lightgray; }
+    .agreementmanagement-div-4__container {
+      margin: 1rem 2rem 0 2rem; }
+    .agreementmanagement-div-4__item-0 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .agreementmanagement-div-4__item-1 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .agreementmanagement-div-4__item-2 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .agreementmanagement-div-4__item-3 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .agreementmanagement-div-4__item-4 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .agreementmanagement-div-4__item-5 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .agreementmanagement-div-4__item-6 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .agreementmanagement-div-4__item-7 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .agreementmanagement-div-4__item-8 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .agreementmanagement-div-4__item-9 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .agreementmanagement-div-4__item-10 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .agreementmanagement-div-4__item-11 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .agreementmanagement-div-4__item-title {
+      margin-top: 1rem;
+      margin-left: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: 700; }
+    .agreementmanagement-div-4__item-subtitle {
+      margin-top: 0.3rem;
+      margin-left: 0.8rem;
+      font-size: 0.6rem;
+      color: gray; }
+    .agreementmanagement-div-4__item-date {
+      margin-top: 0.2rem;
+      margin-left: 0.8rem;
+      font-size: 0.5rem; }
+    .agreementmanagement-div-4__item-image {
+      position: absolute;
+      left: 0.25rem;
+      bottom: 0.3rem; }
+    .agreementmanagement-div-4__item-icon-container {
+      position: absolute;
+      width: 1.5rem;
+      height: 1.5rem;
+      left: 0.5rem;
+      bottom: 0.3rem;
+      border-radius: 50%; }
+    .agreementmanagement-div-4__item-more {
+      color: CornflowerBlue;
+      font-size: 0.5rem;
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem; }
+  .agreementmanagement-div-5__container {
+    position: relative;
+    margin-left: 57rem;
+    margin-top: 44rem;
+    float: none; }
+  .agreementmanagement-div-5__button {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: lightblue;
+    color: white;
+    font-size: 2rem; }
+
+.agreementBoard {
+  position: absolute;
+  left: 17.5rem;
+  background-color: #f8f9fa;
+  width: 102.5rem;
+  height: 62rem; }
+  .agreementBoard-header, .agreementBoard-content, .agreementBoard-top_section, .agreementBoard-bottom_section {
+    margin-left: 5rem; }
+    .agreementBoard-header-calendar-start, .agreementBoard-header-calendar-end, .agreementBoard-content-calendar-start, .agreementBoard-content-calendar-end, .agreementBoard-top_section-calendar-start, .agreementBoard-top_section-calendar-end, .agreementBoard-bottom_section-calendar-start, .agreementBoard-bottom_section-calendar-end {
+      position: relative; }
+  .agreementBoard-top_section {
+    width: 80rem;
+    margin-bottom: 0.3rem; }
+    .agreementBoard-top_section-total {
+      width: 50%; }
+    .agreementBoard-top_section-button {
+      background-color: skyblue;
+      color: white;
+      padding: 3px 4px 3px;
+      border-radius: 2px; }
+      .agreementBoard-top_section-button-wrapper {
+        width: 50%;
+        text-align: end; }
+  .agreementBoard-bottom_section {
+    width: 80rem;
+    margin-top: 0.3rem; }
+    .agreementBoard-bottom_section-input:focus {
+      outline: none; }
+  .agreementBoard__title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 5px;
+    margin-top: 3px; }
+  .agreementBoard-header {
+    margin-top: 3rem;
+    margin-bottom: 1rem; }
+  .agreementBoard-content__header {
+    background-color: #f4f4f6;
+    border: 2.5px solid lightgray;
+    width: 80rem;
+    height: 3rem; }
+  .agreementBoard-content__title {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700; }
+  .agreementBoard-content__items {
+    height: 30rem;
+    width: 80rem;
+    border: 2.5px solid lightgray; }
+  .agreementBoard-content__header_no, .agreementBoard-content__header_writer, .agreementBoard-content__header_date, .agreementBoard-content__header_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__header_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-1_no, .agreementBoard-content__item-1_writer, .agreementBoard-content__item-1_date, .agreementBoard-content__item-1_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-1_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-2_no, .agreementBoard-content__item-2_writer, .agreementBoard-content__item-2_date, .agreementBoard-content__item-2_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-2_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-3_no, .agreementBoard-content__item-3_writer, .agreementBoard-content__item-3_date, .agreementBoard-content__item-3_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-3_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-4_no, .agreementBoard-content__item-4_writer, .agreementBoard-content__item-4_date, .agreementBoard-content__item-4_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-4_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-5_no, .agreementBoard-content__item-5_writer, .agreementBoard-content__item-5_date, .agreementBoard-content__item-5_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-5_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-6_no, .agreementBoard-content__item-6_writer, .agreementBoard-content__item-6_date, .agreementBoard-content__item-6_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-6_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-7_no, .agreementBoard-content__item-7_writer, .agreementBoard-content__item-7_date, .agreementBoard-content__item-7_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-7_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-8_no, .agreementBoard-content__item-8_writer, .agreementBoard-content__item-8_date, .agreementBoard-content__item-8_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-8_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-9_no, .agreementBoard-content__item-9_writer, .agreementBoard-content__item-9_date, .agreementBoard-content__item-9_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-9_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-10_no, .agreementBoard-content__item-10_writer, .agreementBoard-content__item-10_date, .agreementBoard-content__item-10_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-10_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-11_no, .agreementBoard-content__item-11_writer, .agreementBoard-content__item-11_date, .agreementBoard-content__item-11_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-11_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-12_no, .agreementBoard-content__item-12_writer, .agreementBoard-content__item-12_date, .agreementBoard-content__item-12_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-12_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-13_no, .agreementBoard-content__item-13_writer, .agreementBoard-content__item-13_date, .agreementBoard-content__item-13_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-13_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-14_no, .agreementBoard-content__item-14_writer, .agreementBoard-content__item-14_date, .agreementBoard-content__item-14_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-14_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-content__item-15_no, .agreementBoard-content__item-15_writer, .agreementBoard-content__item-15_date, .agreementBoard-content__item-15_views {
+    width: 14%;
+    text-align: center; }
+  .agreementBoard-content__item-15_title {
+    width: 57%;
+    margin-left: 10px; }
+  .agreementBoard-calendar-start, .agreementBoard-calendar-end {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    max-width: 120%;
+    font-size: 10px; }
+
+.attendance {
+  position: absolute;
+  left: 17.5rem;
+  background-color: #f8f9fa;
+  width: 102.5rem;
+  height: 62rem; }
+  .attendance .classname {
+    float: left;
+    border: 0.5px solid lightgray;
+    padding: 1rem 1.7rem; }
+    .attendance .classname:not(:first-child) {
+      margin-left: 2px; }
+  .attendance__image {
+    float: left; }
+  .attendance__title {
+    float: left;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 5px;
+    margin-top: 3px; }
+  .attendance-div-1 {
+    margin-top: 3rem;
+    margin-left: 5rem; }
+  .attendance-div-2 {
+    position: absolute;
+    float: none;
+    top: 8rem;
+    left: 5rem; }
+  .attendance-div-3 {
+    position: absolute;
+    float: none;
+    top: 14rem;
+    left: 5rem;
+    height: 30rem;
+    overflow: hidden;
+    overflow-y: scroll; }
+  .attendance__parent-list-title {
+    padding: 1rem 11.7rem 1rem 1.5rem;
+    border-top: 3px solid lightgray;
+    border-bottom: 3px solid lightgray; }
+    .attendance__parent-list-title.fixed {
+      display: flex;
+      top: 0;
+      left: 0; }
+  .attendance__parent-list-items {
+    height: 26.5rem;
+    overflow: auto;
+    overflow-y: none; }
+  .attendance__parent-list-item {
+    padding: 1rem 11.7rem 1rem 1.5rem; }
+    .attendance__parent-list-item + .attendance__parent-list-item {
+      border-top: 0.5px solid lightgray; }
+    .attendance__parent-list-item-button {
+      position: absolute;
+      float: left; }
+      .attendance__parent-list-item-button-0 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-1 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-2 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-3 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-4 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-5 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-6 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-7 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-8 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-9 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-10 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+      .attendance__parent-list-item-button-11 {
+        width: 4.5rem;
+        background-color: white;
+        float: right;
+        padding: 0.3rem 0 0.3rem;
+        margin-right: 1rem;
+        transform: translateX(11.5rem) translateY(-1.6rem);
+        font-size: 0.8rem; }
+  .attendance-div-4 {
+    position: absolute;
+    top: 8rem;
+    left: 30rem;
+    height: 30rem; }
+    .attendance-div-4__header {
+      background-color: #f4f4f6;
+      border: 2.5px solid lightgray;
+      width: 30rem;
+      height: 5rem; }
+    .attendance-div-4__title {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      font-size: 1.4rem;
+      font-weight: 700; }
+    .attendance-div-4__subtitle {
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      font-size: 0.8rem;
+      overflow: hidden;
+      color: gray; }
+    .attendance-div-4__items {
+      height: 30rem;
+      border: 2.5px solid lightgray; }
+    .attendance-div-4__container {
+      margin: 1rem 2rem 0 2rem; }
+    .attendance-div-4__item-0 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .attendance-div-4__item-1 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .attendance-div-4__item-2 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .attendance-div-4__item-3 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .attendance-div-4__item-4 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .attendance-div-4__item-5 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .attendance-div-4__item-6 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .attendance-div-4__item-7 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .attendance-div-4__item-8 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .attendance-div-4__item-9 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .attendance-div-4__item-10 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: left; }
+    .attendance-div-4__item-11 {
+      position: relative;
+      border: 3px solid lightgray;
+      border-radius: 1rem;
+      width: 12rem;
+      height: 7.5rem;
+      float: right; }
+    .attendance-div-4__item-title {
+      margin-top: 1rem;
+      margin-left: 0.8rem;
+      font-size: 1.1rem;
+      font-weight: 700; }
+    .attendance-div-4__item-subtitle {
+      margin-top: 0.3rem;
+      margin-left: 0.8rem;
+      font-size: 0.6rem;
+      color: gray; }
+    .attendance-div-4__item-date {
+      margin-top: 0.2rem;
+      margin-left: 0.8rem;
+      font-size: 0.5rem; }
+    .attendance-div-4__item-image {
+      position: absolute;
+      left: 0.25rem;
+      bottom: 0.3rem; }
+    .attendance-div-4__item-icon-container {
+      position: absolute;
+      width: 1.5rem;
+      height: 1.5rem;
+      left: 0.5rem;
+      bottom: 0.3rem;
+      border-radius: 50%; }
+    .attendance-div-4__item-more {
+      color: CornflowerBlue;
+      font-size: 0.5rem;
+      position: absolute;
+      bottom: 0.5rem;
+      right: 0.5rem; }
+  .attendance-div-5__container {
+    position: relative;
+    margin-left: 57rem;
+    margin-top: 44rem;
+    float: none; }
+  .attendance-calendar {
+    margin-top: 20px;
+    width: 28rem !important; }
+    .attendance-calendar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+    .attendance-calendar-status {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width: 28rem;
+      height: 8rem; }
+
+hr.solid {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-top: 0.3px solid #bbb; }
+
+.vl {
+  border-left: 2px solid green;
+  padding-right: 10px;
+  height: 70px; }
+
+.vl-normal {
+  border-left: 1px solid #bbb;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 70px; }
+
+.vl-normal-noti {
+  display: block;
+  border-left: 1px solid #bbb;
+  margin-right: 10px;
+  margin-left: 10px;
+  height: 180px; }
+
+.vl-board {
+  border-left: 1px solid #bbb;
+  height: 30px; }
+
+.vl-board-title {
+  border-left: 1px solid #bbb;
+  height: 50px; }
+
+.vl_invisible {
+  opacity: 0;
+  padding-right: 12px;
+  height: 70px; }

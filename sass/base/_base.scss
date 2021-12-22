@@ -1,0 +1,26 @@
+*,
+*::after,
+*::before {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+  cursor: default;
+  margin: 0;
+  padding: 0 auto;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+html {
+  background-color: #f2f3f4;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  padding: 5px 5px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}

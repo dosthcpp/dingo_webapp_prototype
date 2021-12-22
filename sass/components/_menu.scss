@@ -1,0 +1,28 @@
+.menu {
+  position: relative;
+  margin: 5px -5px 0;
+  padding: 5px 5px;
+  width: 119.4rem;
+  height: 1rem;
+  color: grey;
+  background-color: white;
+}
+
+.menu-list {
+  list-style: none;
+  width: 500px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  border: 0;
+  float: left;
+  overflow: auto;
+
+  & + & {
+    margin-left: 15px;
+  }
+}
