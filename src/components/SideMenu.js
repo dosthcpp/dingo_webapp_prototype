@@ -1,16 +1,12 @@
-import React, { useState } from "react";
-import 돋보기 from "../icons/돋보기.png";
-import 시계 from "../icons/시계.png";
-import 설정 from "../icons/설정.png";
-import 템플릿 from "../icons/템플릿.png";
-import 가져오기 from "../icons/가져오기.png";
-import 휴지통 from "../icons/휴지통.png";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Column, RowCentered, SizedBox } from "../layout";
+import { Column, Row, RowCentered, SizedBox } from "../layout";
 import { NAV } from "../actions/types";
 
+const isDev = window.require('electron-is-dev');
+
 const SideMenu = () => {
-  let [click, setClick] = useState(false);
+  const [click, setClick] = useState(Array(4).fill(false));
   const dispatch = useDispatch();
 
   const collapseable = <span className="menu-list-collapseable">&#9656;</span>;
@@ -23,9 +19,16 @@ const SideMenu = () => {
       ["홈"],
       [
         "업무",
-        ["출석부", "동의서 관리", "가정통신문 및 알림장 작성", "학부모 상담"],
+        [
+          "출석부",
+          "동의서 관리",
+          "가정통신문 및 알림장 작성",
+          "학부모 상담",
+          "활동사진 업로드",
+          "일정관리",
+          "식단표 업로드",
+        ],
       ],
-      ["일정", []],
       ["자료실", ["동의서", "가정통신문", "학습자료", "기타"]],
     ];
 
@@ -37,17 +40,19 @@ const SideMenu = () => {
               <li
                 className={`menu-list-${idx}`}
                 onClick={() => {
-                  setClick(!click);
+                  const state = [...click];
+                  state[idx] = !state[idx];
+                  setClick(state);
                 }}
                 key={idx}
               >
-                {click ? nonCollapseable : collapseable}
+                {click[idx] ? nonCollapseable : collapseable}
                 {cur[0]}
               </li>
               <ul
                 className="submenu"
                 style={{
-                  display: click ? "block" : "none",
+                  display: click[idx] ? "block" : "none",
                 }}
               >
                 {cur[1].map((curMenu, idx) => {
@@ -55,6 +60,7 @@ const SideMenu = () => {
                     <li
                       className={`menu-list submenu-item-${idx + 1}`}
                       onClick={() => {
+                        console.log(curMenu);
                         switch (curMenu) {
                           case "출석부":
                             dispatch({
@@ -75,33 +81,70 @@ const SideMenu = () => {
                             });
                             break;
                           case "학부모 상담":
-                            dispatch({
-                              type: NAV,
-                              payload: 4,
+                            const { BrowserWindow } =
+                              window.require("@electron/remote");
+                            const remoteMain = window.require(
+                              "@electron/remote/main"
+                            );
+                            let win = new BrowserWindow({
+                              width: 600,
+                              height: 800,
+                              resizable: true,
+                              webPreferences: {
+                                contextIsolation: false,
+                                nodeIntegration: true,
+                                enableRemoteModule: true,
+                              },
                             });
+                            if(isDev) {
+                              win.loadURL("http://localhost:3000/#/chat");
+                            } else {
+                              win.loadFile("build/index.html", {
+                              hash: "#/chat",
+                            });
+                            }
+                            remoteMain.enable(win.webContents);
                             break;
-                          case "동의서":
+                          case "활동사진 업로드":
                             dispatch({
                               type: NAV,
                               payload: 5,
                             });
                             break;
-                          case "가정통신문":
+                          case "동의서":
                             dispatch({
                               type: NAV,
                               payload: 6,
                             });
                             break;
-                          case "학습자료":
+                          case "가정통신문":
                             dispatch({
                               type: NAV,
                               payload: 7,
                             });
                             break;
-                          case "기타":
+                          case "학습자료":
                             dispatch({
                               type: NAV,
                               payload: 8,
+                            });
+                            break;
+                          case "기타":
+                            dispatch({
+                              type: NAV,
+                              payload: 9,
+                            });
+                            break;
+                          case "일정관리":
+                            dispatch({
+                              type: NAV,
+                              payload: 10,
+                            });
+                            break;
+                          case "식단표 업로드":
+                            dispatch({
+                              type: NAV,
+                              payload: 11,
                             });
                             break;
                           default:
@@ -115,7 +158,7 @@ const SideMenu = () => {
                 })}
               </ul>
             </div>
-          ) : (
+          ) : cur[0] === "홈" ? (
             <li
               className={`menu-list-${idx}`}
               onClick={
@@ -142,6 +185,8 @@ const SideMenu = () => {
                 {cur[0]}
               </span>
             </li>
+          ) : (
+            <div />
           );
         })}
       </ul>
@@ -151,79 +196,61 @@ const SideMenu = () => {
   return (
     <div className="side-menu">
       <div className="menu-div-1">
-        <RowCentered>
-          <div className="id-div">
-            <img
-              className="id-div__content image"
-              src="https://via.placeholder.com/25"
-              alt="Hello"
-            />
-            <Column>
-              <div className="id-div__content title">새싹 유치원</div>
-              <div className="id-div__content email">abcd1234@gmail.com</div>
-            </Column>
+        <Column>
+          <div
+            onClick={() => {
+              const { BrowserWindow } = window.require("@electron/remote");
+              const remoteMain = window.require("@electron/remote/main");
+              let win = new BrowserWindow({
+                width: 600,
+                height: 800,
+                // resizable: false,
+                webPreferences: {
+                  contextIsolation: false,
+                  nodeIntegration: true,
+                  enableRemoteModule: true,
+                },
+              });
+              // win.webContents.openDevTools();
+              if(isDev) {
+                win.loadURL("http://localhost:3000/#/login");
+              } else {
+                win.loadFile("build/index.html", {
+                hash: "#/login",
+              });
+              }
+              remoteMain.enable(win.webContents);
+            }}
+            className="id-div__content title"
+          >
+            새싹 유치원
           </div>
-        </RowCentered>
+          <div className="id-div__content email">abcd1234@gmail.com</div>
+        </Column>
       </div>
-      <ul className="menu-div-2">
-        <li className="menu-item">
-          <img
-            className="quick-func--div__content image-1"
-            src={돋보기}
-            alt="Hello"
-            style={{ width: "1.5rem" }}
-          />
+      <div className="menu-div-2">
+        <div className="menu-item">
           <div className="menu-title">빠른 검색</div>
-        </li>
-        <li className="menu-item">
-          <img
-            className="quick-func--div__content image-2"
-            src={시계}
-            alt="Hello"
-            style={{ width: "1.5rem" }}
-          />
+        </div>
+        <div className="menu-item">
           <div className="menu-title">모든 업데이트</div>
-        </li>
-        <li className="menu-item">
-          <img
-            className="quick-func--div__content image-3"
-            src={설정}
-            alt="Hello"
-            style={{ width: "1.5rem" }}
-          />
+        </div>
+        <div className="menu-item">
           <div className="menu-title">설정과 멤버</div>
-        </li>
-      </ul>
+        </div>
+      </div>
       <div className="menu-div-3">
         <div className="menu-div__title">워크스페이스</div>
         {renderMenu()}
       </div>
       <div className="menu-div-4">
         <li className="menu-item">
-          <img
-            className="quick-func--div__content image-4"
-            src={템플릿}
-            alt="Hello"
-            style={{ width: "1.5rem" }}
-          />
           <div className="menu-title">템플릿</div>
         </li>
         <li className="menu-item">
-          <img
-            className="quick-func--div__content image-5"
-            src={가져오기}
-            alt="Hello"
-            style={{ width: "1.5rem" }}
-          />
           <div className="menu-title">가져오기</div>
         </li>
         <li className="menu-item">
-          <img
-            className="quick-func--div__content image-6"
-            src={휴지통}
-            alt="Hello"
-            style={{ width: "1.5rem" }}
-          />
           <div className="menu-title">휴지통</div>
         </li>
       </div>

@@ -1,7 +1,6 @@
 .attendance {
   position: absolute;
-  left: 17.5rem;
-  background-color: #f8f9fa;
+  background-color: white;
   width: 102.5rem;
   height: 62rem;
 
@@ -208,6 +207,7 @@
 
     &-status {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       background-color: white;

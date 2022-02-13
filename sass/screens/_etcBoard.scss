@@ -1,0 +1,130 @@
+.etcBoard {
+  position: absolute;
+  margin-top: 48px;
+  margin-left: 5rem;
+
+  &-header,
+  &-content,
+  &-top_section,
+  &-bottom_section {
+    &-calendar {
+      &-start,
+      &-end {
+        position: relative;
+      }
+    }
+  }
+
+  &-top_section {
+    width: 80rem;
+    margin-bottom: 0.3rem;
+    &-total {
+      width: 50%;
+    }
+    &-button {
+      background-color: #697fef;
+      font-weight: 600;
+      color: white;
+      padding: 3px 15px 3px 15px;
+      border-radius: 2px;
+      float: right;
+    }
+  }
+
+  &-bottom_section {
+    width: 75%;
+    margin-top: 0.3rem;
+    &-input {
+      width: 40rem;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 30px;
+      background-color: #eee;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        padding-top: 100px;
+
+        color: grey;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 5px;
+    margin-top: 3px;
+  }
+
+  &-header {
+    margin-bottom: 1rem;
+  }
+
+  &-content {
+    width: 75%;
+    &__header {
+      background-color: #f4f4f6;
+      border-top: 3px solid grey;
+      width: 80rem;
+      height: 2.5rem;
+    }
+
+    &__title {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      font-size: 1.4rem;
+    }
+
+    &__items {
+      height: 28rem;
+      width: 80rem;
+    }
+
+    &__header {
+      &_title,
+      &_no,
+      &_writer,
+      &_date,
+      &_views {
+        width: 14%;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      &_title {
+        width: 57%;
+        margin-left: 10px;
+      }
+    }
+
+    &__item {
+      &_no,
+      &_writer,
+      &_date,
+      &_views {
+        width: 14%;
+        text-align: center;
+      }
+
+      &_title {
+        width: 57%;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  &-calendar {
+    &-start,
+    &-end {
+      position: absolute;
+      right: 50%;
+      transform: translateX(50%);
+      max-width: 120%;
+      font-size: 10px;
+    }
+  }
+}

@@ -3,15 +3,31 @@ import 동의서 from "../icons/동의서.png";
 import React, { useState } from "react";
 import { Column, SizedBox } from "../layout";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
+import { firestore } from "../firebase";
+import { parseDateForFirebaseWithoutTime } from "../utils";
+import { NotificationManager } from "react-notifications";
 
 const Attendance = () => {
   const [selected, setSelected] = useState(0);
   const [selectedChild, setSelectedChild] = useState(null);
   const [selectedName, setSelectedName] = useState("");
-  const [selectedDay, setSelectedDay] = useState(`1월 1일`);
+  const [selectedDay, setSelectedDay] = useState(new Date(Date.now()));
+  const [selectedStatus, setSelectedStatus] = useState({
+    value: "결석",
+    name: "결석",
+  });
   const kindgartenList = ["새싹반", "햇님반", "달님반"];
   const childList = ["백도연", "테테테", "박부박"];
+  const options = [
+    { value: "출석", name: "출석" },
+    { value: "결석", name: "결석" },
+  ];
+
+  const dateDisplay = (_date) => {
+    return `${_date.getFullYear()}년 ${
+      _date.getMonth() + 1
+    }월 ${_date.getDate()}일`;
+  };
 
   const renderMenu = () => {
     return kindgartenList.map((key, idx) => {
@@ -19,7 +35,7 @@ const Attendance = () => {
         <button
           className={`classname classname-${idx}`}
           style={{
-            backgroundColor: selected === idx ? "CornflowerBlue" : "#f8f9fa",
+            backgroundColor: selected === idx ? "CornflowerBlue" : "white",
           }}
           onClick={() => {
             setSelected(idx);
@@ -99,29 +115,92 @@ const Attendance = () => {
           <div className="attendance-calendar-container">
             {selectedName ? (
               <Calendar
+                defaultValue={new Date(Date.now())}
                 className="attendance-calendar"
                 onClickDay={(d) => {
                   const _date = new Date(d);
-                  const dayString = `${
-                    _date.getMonth() + 1
-                  }월 ${_date.getDate()}일`;
-                  setSelectedDay(dayString);
+                  setSelectedDay(_date);
                 }}
               />
             ) : null}
             <SizedBox height="1rem" />
             {selectedName ? (
               <div className="attendance-calendar-status">
-                <span>
-                  {`${selectedName} 원아의 ${selectedDay} 출석상태: `}
-                </span>
-                <span
-                  style={{
-                    color: "green",
+                <div>
+                  <span>
+                    {`${selectedName} 원아의 ${dateDisplay(
+                      selectedDay
+                    )} 출석상태: `}
+                  </span>
+                  <select
+                    onChange={(e) => {
+                      setSelectedStatus(e.target.value);
+                    }}
+                    defaultValue="결석"
+                  >
+                    {options.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    try {
+                      const status = selectedStatus === "출석" ? true : false;
+                      const snap = await firestore
+                        .collection("attendance")
+                        .get();
+                      let i = 0;
+                      const _len = snap.docs.length;
+                      for (
+                        ;
+                        i < _len &&
+                        !(
+                          snap.docs[i].data()["원아 이름"] === selectedName &&
+                          parseDateForFirebaseWithoutTime(
+                            snap.docs[i].data()["날짜"].toDate()
+                          ) === parseDateForFirebaseWithoutTime(selectedDay)
+                        );
+                        ++i
+                      ) {}
+                      if (i >= _len) {
+                        firestore.collection("attendance").add({
+                          "원아 이름": selectedName,
+                          출석: status,
+                          날짜: selectedDay,
+                          isNotified: false,
+                        });
+                        NotificationManager.info(
+                          "원아의 출결상태가 정상적으로 저장되었습니다."
+                        );
+                      } else {
+                        if (snap.docs[i].data()["출석"] !== status) {
+                          firestore
+                            .collection("attendance")
+                            .doc(snap.docs[i].id)
+                            .update({
+                              출석: status,
+                              isNotified: false,
+                            });
+                          NotificationManager.info(
+                            "원아의 출결상태가 정상적으로 저장되었습니다."
+                          );
+                        } else {
+                          NotificationManager.error(
+                            "이미 처리된 출결상태입니다."
+                          );
+                        }
+                      }
+                    } catch (e) {
+                      console.log(e);
+                    }
                   }}
                 >
-                  출석
-                </span>
+                  저장하기
+                </div>
               </div>
             ) : null}
           </div>

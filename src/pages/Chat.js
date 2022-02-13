@@ -10,13 +10,14 @@ import {
   RowCentered,
   SizedBoxWithElevation,
 } from "../layout";
+import { parseDateForFirebase } from "../utils";
 import icon from "../icons/icon.png";
 import search from "../icons/search.png";
 import alert from "../icons/alert.png";
 import styled from "styled-components";
 
 const CustomDivider = styled.hr`
-  width: 43%;
+  width: 40%;
   margin-top: 2px;
   margin-bottom: 2px;
   border-top: 0.3px solid #bbb;
@@ -68,24 +69,6 @@ const Chat = ({ fetchedChatList, fetchChatList }) => {
     }`;
   };
 
-  const parseDateForFirebase = (_date) => {
-    return `${_date.getFullYear()}-${
-      _date.getMonth() + 1 > 10
-        ? _date.getMonth() + 1
-        : `0${_date.getMonth() + 1}`
-    }-${_date.getDate() > 10 ? _date.getDate() : `0${_date.getDate()}`} ${
-      _date.getHours() > 10 ? _date.getHours() : `0${_date.getHours()}`
-    }:${
-      _date.getMinutes() > 10 ? _date.getMinutes() : `0${_date.getMinutes()}`
-    }:${
-      _date.getSeconds() > 10 ? _date.getSeconds() : `0${_date.getSeconds()}`
-    }.${
-      _date.getMilliseconds() > 10
-        ? _date.getMilliseconds()
-        : `${_date.getMilliseconds()}`
-    }`;
-  };
-
   const chatBubble = (chat) => {
     return (
       <li
@@ -129,7 +112,7 @@ const Chat = ({ fetchedChatList, fetchChatList }) => {
                     ? "20px 20px 20px 0px"
                     : "20px 20px 0px 20px",
                 backgroundColor:
-                  chat["sender"] !== currentUser ? "#318cea" : "#474f54",
+                  chat["sender"] !== currentUser ? "#474f54" : "#318cea",
               }}
             >
               {chat["text"]}
@@ -155,7 +138,7 @@ const Chat = ({ fetchedChatList, fetchChatList }) => {
     const messageList = [];
     const chatList = Array.from(fetchedChatList);
     chatList.sort((a, b) => a["time"] > b["time"]);
-    console.log(chatList);
+    console.log(chatList); // 비동기 함수가 아니기 떄문에 chatlist를 Fetch하는 동안 먼저 console.log함수가 실행됨
     for (var i = 0; i < chatList.length; ++i) {
       if (i === 0) {
         messageList.push(customDivider(new Date(chatList[i]["time"])));
@@ -177,22 +160,32 @@ const Chat = ({ fetchedChatList, fetchChatList }) => {
   const customDivider = (date) => {
     const _date = new Date(date);
     return (
-      <RowCentered>
-        <CustomDivider />
-        <div
-          style={{
-            width: "14%",
-            textAlign: "center",
-          }}
-        >{`${_date.getFullYear()}년 ${
-          _date.getMonth() + 1 > 10
-            ? _date.getMonth() + 1
-            : `0${_date.getMonth() + 1}`
-        }월 ${
-          _date.getDate() > 10 ? _date.getDate() : `0${_date.getDate()}`
-        }일`}</div>
-        <CustomDivider />
-      </RowCentered>
+      <div
+        style={{
+          paddingBottom: "15px",
+          paddingTop: "10px",
+        }}
+      >
+        <RowCentered>
+          <CustomDivider />
+          <div
+            style={{
+              width: "15%",
+              paddingLeft: "3%",
+              paddingRight: "3%",
+              textAlign: "center",
+              fontSize: "10px",
+            }}
+          >{`${_date.getFullYear()}년 ${
+            _date.getMonth() + 1 > 10
+              ? _date.getMonth() + 1
+              : `0${_date.getMonth() + 1}`
+          }월 ${
+            _date.getDate() > 10 ? _date.getDate() : `0${_date.getDate()}`
+          }일`}</div>
+          <CustomDivider />
+        </RowCentered>
+      </div>
     );
   };
 

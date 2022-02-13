@@ -1,0 +1,54 @@
+.upload_album {
+  position: absolute;
+  width: 1350px;
+  margin-top: 48px;
+  margin-left: 5rem;
+
+  &__input-title {
+    width: 1350px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid lightgrey;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      padding-top: 100px;
+      color: lightgrey;
+      font-size: large;
+    }
+  }
+
+  &__wrapper-class {
+    border-top: 3px solid grey;
+    border-bottom: 3px solid grey;
+    width: 1350px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+  }
+
+  &__editor {
+    height: 500px !important;
+    overflow-y: hidden;
+    border: 0px solid transparent !important;
+    border-radius: 2px !important;
+    & div:first-of-type {
+      height: 470px;
+    }
+  }
+
+  &__toolbar-class {
+    border: 0px solid transparent !important;
+  }
+
+  &__submit-btn {
+    background-color: #697fef;
+    font-weight: 600;
+    color: white;
+    padding: 3px 15px 3px 15px;
+    border-radius: 2px;
+    float: right;
+  }
+}

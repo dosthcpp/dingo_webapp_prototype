@@ -11,12 +11,8 @@ import {
   getNotifications,
   addNotifications,
 } from "../actions";
-import { firestore } from "../firebase";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
-import "react-notifications/lib/notifications.css";
+
+const isDev = window.require('electron-is-dev');
 
 // const { ipcRenderer } = window.require("electron");
 
@@ -26,7 +22,6 @@ const AgreementManagement = ({
   fetchedParentList,
   fetchedAgreement,
   getNotifications,
-  addNotifications,
 }) => {
   const [selected, setSelected] = useState(0);
   const [selectedParent, setSelectedParent] = useState(null);
@@ -71,48 +66,13 @@ const AgreementManagement = ({
   //   });
   // }, [dispatch, fetchAgreementList, fetchedAgreement]);
 
-  useEffect(() => {
-    const unsubscribe = firestore.collection("user").onSnapshot((snap) => {
-      snap.docChanges().forEach((change) => {
-        if (change.doc.data() !== null) {
-          const agreementList = Array.from(change.doc.data()["동의서"]);
-          for (var i = 0; i < agreementList.length; ++i) {
-            const agreement = agreementList[i];
-            if (
-              agreement["isAgreed"] !== null &&
-              agreement["hasNotified"] !== null &&
-              agreement["hasNotified"] === false &&
-              agreement["isAgreed"] === true
-            ) {
-              const noti = `${change.doc.data()["부모님 성함"]} 학부모님께서 ${
-                change.doc.data()["원아 이름"]
-              } 원아의 ${agreementList[i]["title"]}에 동의하셨습니다.`;
-              agreementList[i]["hasNotified"] = true;
-              firestore
-                .collection("user")
-                .doc(change.doc.id)
-                // current user
-                .update({ 동의서: agreementList });
-
-              addNotifications(noti);
-              dispatch(fetchAgreementList);
-              // raise notification event
-              NotificationManager.info(noti);
-            }
-          }
-        }
-      });
-    });
-    return unsubscribe;
-  }, [dispatch, fetchAgreementList, addNotifications]);
-
   const renderMenu = () => {
     return kindgartenList.map((key, idx) => {
       return (
         <button
           className={`classname classname-${idx}`}
           style={{
-            backgroundColor: selected === idx ? "CornflowerBlue" : "#f8f9fa",
+            backgroundColor: selected === idx ? "CornflowerBlue" : "white",
           }}
           onClick={() => {
             setSelected(idx);
@@ -235,7 +195,6 @@ const AgreementManagement = ({
 
   return (
     <div className="agreementmanagement">
-      <NotificationContainer />
       <div className="agreementmanagement-div-1">
         <img
           className="agreementmanagement__image"
@@ -278,7 +237,6 @@ const AgreementManagement = ({
           <button
             onClick={() => {
               const { BrowserWindow } = window.require("electron").remote;
-              const path = window.require("path");
               let win = new BrowserWindow({
                 width: 1200,
                 height: 1080,
@@ -289,9 +247,13 @@ const AgreementManagement = ({
                   enableRemoteModule: true,
                 },
               });
-              // win.loadURL("http://localhost:3000/add");
-              // production
-              win.loadFile("build/index.html", { hash: "#/add" });
+              if(isDev) {
+                win.loadURL("http://localhost:3000/#/add");
+              } else {
+                win.loadFile("build/index.html", {
+                hash: "#/add",
+              });
+              }
               win.on("close", () => {
                 const timer = setInterval(() => {
                   clearInterval(timer);

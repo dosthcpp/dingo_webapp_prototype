@@ -1,1 +1,2 @@
-window.ipcRenderer = require("electron").ipcRenderer;
+const { ipcRenderer } = window.require("@electron/remote");
+window.ipcRenderer = ipcRenderer;

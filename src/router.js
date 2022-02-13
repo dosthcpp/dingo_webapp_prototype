@@ -5,8 +5,11 @@ import NoticeBoard from "./contents/NoticeBoard";
 import StudyMaterialBoard from "./contents/StudyMaterialBoard";
 import EtcBoard from "./contents/EtcBoard";
 import NoticeManagement from "./contents/NoticeManagement";
-import Chat from "./pages/Chat";
 import Attendance from "./pages/Attendance";
+import UploadAlbum from "./pages/UploadAlbum";
+import DailyManagement from "./contents/DailyManagement";
+import MealPlanManagement from "./contents/MealPlanManagement";
+import MyPage from "./contents/MyPage";
 
 export const router = (navNo) => {
   switch (navNo) {
@@ -18,16 +21,22 @@ export const router = (navNo) => {
       return <AgreementManagement />;
     case 3:
       return <NoticeManagement />;
-    case 4:
-      return <Chat />;
     case 5:
-      return <AgreementBoard />;
+      return <UploadAlbum />;
     case 6:
-      return <NoticeBoard />;
+      return <AgreementBoard />;
     case 7:
-      return <StudyMaterialBoard />;
+      return <NoticeBoard />;
     case 8:
+      return <StudyMaterialBoard />;
+    case 9:
       return <EtcBoard />;
+    case 10:
+      return <DailyManagement />;
+    case 11:
+      return <MealPlanManagement />;
+    case 12:
+      return <MyPage />;
     default:
       return null;
   }

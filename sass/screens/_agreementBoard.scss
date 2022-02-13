@@ -1,16 +1,12 @@
 .agreementBoard {
   position: absolute;
-  left: 17.5rem;
-  background-color: #f8f9fa;
-  width: 102.5rem;
-  height: 62rem;
+  margin-top: 48px;
+  margin-left: 5rem;
 
   &-header,
   &-content,
   &-top_section,
   &-bottom_section {
-    margin-left: 5rem;
-
     &-calendar {
       &-start,
       &-end {
@@ -26,23 +22,33 @@
       width: 50%;
     }
     &-button {
-      background-color: skyblue;
+      background-color: #697fef;
+      font-weight: 600;
       color: white;
-      padding: 3px 4px 3px;
+      padding: 3px 15px 3px 15px;
       border-radius: 2px;
-      &-wrapper {
-        width: 50%;
-        text-align: end;
-      }
+      float: right;
     }
   }
 
   &-bottom_section {
-    width: 80rem;
+    width: 75%;
     margin-top: 0.3rem;
     &-input {
+      width: 40rem;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 30px;
+      background-color: #eee;
+
       &:focus {
         outline: none;
+      }
+
+      &::placeholder {
+        padding-top: 100px;
+
+        color: grey;
       }
     }
   }
@@ -55,32 +61,47 @@
   }
 
   &-header {
-    margin-top: 3rem;
     margin-bottom: 1rem;
   }
 
   &-content {
+    width: 75%;
     &__header {
       background-color: #f4f4f6;
-      border: 2.5px solid lightgray;
+      border-top: 3px solid grey;
       width: 80rem;
-      height: 3rem;
+      height: 2.5rem;
     }
 
     &__title {
       margin-top: 1rem;
       margin-left: 1rem;
       font-size: 1.4rem;
-      font-weight: 700;
     }
 
     &__items {
-      height: 30rem;
+      height: 28rem;
       width: 80rem;
-      border: 2.5px solid lightgray;
     }
 
     &__header {
+      &_title,
+      &_no,
+      &_writer,
+      &_date,
+      &_views {
+        width: 14%;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      &_title {
+        width: 57%;
+        margin-left: 10px;
+      }
+    }
+
+    &__item {
       &_no,
       &_writer,
       &_date,
@@ -92,25 +113,6 @@
       &_title {
         width: 57%;
         margin-left: 10px;
-      }
-    }
-
-    &__item {
-      @for $i from 1 through 15 {
-        &-#{$i} {
-          &_no,
-          &_writer,
-          &_date,
-          &_views {
-            width: 14%;
-            text-align: center;
-          }
-
-          &_title {
-            width: 57%;
-            margin-left: 10px;
-          }
-        }
       }
     }
   }

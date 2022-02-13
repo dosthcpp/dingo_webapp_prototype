@@ -4,5 +4,11 @@ export const GET_CHAT_LIST = "GET_CHAT_LIST";
 export const GET_NOTIFY = "GET_NOTIFY";
 export const ADD_NOTIFY = "ADD_NOTIFY";
 export const REFRESH_NOTIFY = "REFRESH_NOTIFY";
+export const GET_AGREEMENT_BOARD = "GET_AGREEMENT_BOARD";
+export const DID_FETCH_BOARD = "DID_FETCH_BOARD";
+export const GET_GOV_NOTI = "GET_GOV_NOTI";
+export const GET_CORONA_NOTI = "GET_CORONA_NOTI";
+export const GET_PM = "GET_PM";
+export const USE_LAYOUT = "USE_LAYOUT";
 
 export const NAV = "NAV";

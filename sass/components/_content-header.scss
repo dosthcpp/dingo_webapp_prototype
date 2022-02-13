@@ -1,80 +1,79 @@
 .content-header {
-  height: 4rem;
-  width: 119.6rem;
-  background-color: white;
-  color: black;
+  &__wpr {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 64px;
+    margin: 0;
+  }
 
   &__item {
-    float: right;
-    margin-top: 1.5rem;
+    @for $i from 1 through 3 {
+      &-#{$i} {
+        white-space: nowrap;
+        margin-top: 1.5rem;
+      }
+    }
+    &-2 {
+      width: 30px;
+    }
+  }
 
-    & > div > span {
-      transform: scale(0.8, 0.8) !important;
-      right: -20px !important;
-      top: -12px !important;
-    }
-
-    & img {
-      float: right;
-      width: 10px;
-    }
-
-    &:first-child {
-      margin-right: 2rem;
-    }
-    &:not(:last-child) {
-      margin-left: 2rem;
-    }
+  &__badge {
+    position: absolute !important;
+    top: -30px !important;
+    left: 25px !important;
   }
 }
 
 .menuitem {
   top: 50%;
-  &__3 {
-    &-popover {
-      opacity: 0;
-      z-index: 50;
-      position: absolute !important;
-      right: 8vw !important;
-      top: 14vh !important;
-      visibility: hidden;
+  &-popover {
+    position: absolute;
+    right: -10px;
+    top: 9vh;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 50;
+    height: 20rem;
+    width: 18rem;
+    background-color: white;
+    transform: translate(0, 10px);
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    &::before {
+      // 삼각형
+      content: "";
       position: absolute;
-      right: 1rem;
-      top: 4.5rem;
-      height: 20rem;
-      width: 18rem;
-      background-color: #fff;
-      transform: translate(0, 10px);
-      padding: 1.5rem;
-      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-      &::before {
-        // 삼각형
-        content: "";
-        position: absolute;
-        z-index: -1;
-        right: 1.1rem;
-        top: -8px;
-        border-style: solid;
-        border-width: 0 10px 10px 10px;
-        border-color: transparent transparent #fff transparent;
-        transition-duration: 0.3s;
-        transition-property: transform;
-      }
+      z-index: -1;
+      right: 1.1rem;
+      top: -8px;
+      border-style: solid;
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent #fff transparent;
+      transition-duration: 0.3s;
+      transition-property: transform;
     }
+  }
 
-    &-wrapper &-popover {
-      opacity: 0;
-      visibility: hidden;
-      transition-delay: 2s;
-    }
+  &-wpr &-popover {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 2s;
+  }
 
-    &-wrapper:hover &-popover,
-    &-wrapper:active &-popover &-wrapper:focus &-popover {
-      opacity: 1;
-      visibility: visible;
-      z-index: 1000;
-      transform: translate(0, -20px);
-      transition: all 0.5s ease-in;
-    }
+  &-wpr {
+    position: relative;
+    white-space: nowrap;
+    width: 30px;
+  }
+
+  &-wpr:hover &-popover,
+  &-wpr:active &-popover &-wpr:focus &-popover {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000;
+    transform: translate(0, -20px);
+    transition: all 0.5s ease-in;
   }
 }

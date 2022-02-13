@@ -4,42 +4,45 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
-import { Column, RowCentered } from "../layout";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
-import "react-calendar/dist/Calendar.css";
+import { SizedBox } from "../layout";
+import { NotificationManager } from "react-notifications";
+import Select from "react-select";
 
 const NoticeManagement = () => {
-  const [type, setType] = useState("가정통신문");
+  const [type, setType] = useState("알림장");
   const [title, setTitle] = useState("");
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
   const onEditorStateChange = (editorState) => {
     setEditorState(editorState);
   };
+  const options = [
+    { value: "알림장", label: "알림장" },
+    { value: "가정통신문", label: "가정통신문" },
+  ];
 
   const uploadNotice = async () => {
     try {
       const editorToHtml = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
-      const snapshots = (await firestore.collection("user").get()).docs;
-      for (var i = 0; i < snapshots.length; ++i) {
+      const docs = (await firestore.collection("user").get()).docs;
+      for (let i = 0; i < docs.length; ++i) {
+        console.log(docs[i].id);
         const agreementList =
-          (
-            await firestore.collection("user").doc(snapshots[i].id).get()
-          ).data()["알림장"] ?? [];
+          (await firestore.collection("user").doc(docs[i].id).get()).data()[
+            "알림장"
+          ] ?? [];
+        console.log(agreementList);
         firestore
           .collection("user")
-          .doc(snapshots[i].id)
+          .doc(docs[i].id)
           .update({
             알림장: [
               ...agreementList,
               {
                 title,
                 contents: editorToHtml,
-                createdAt: new Date(),
+                createdAt: new Date(Date.now()),
               },
             ],
           });
@@ -72,7 +75,7 @@ const NoticeManagement = () => {
               {
                 title,
                 contents: editorToHtml,
-                createdAt: new Date(),
+                createdAt: new Date(Date.now()),
               },
             ],
           });
@@ -86,54 +89,67 @@ const NoticeManagement = () => {
   };
 
   return (
-    <div>
-      <NotificationContainer />
-      <select
-        onChange={(e) => {
-          setType(e.target.value);
-          console.log(type);
-        }}
-      >
-        <option value="알림장">알림장</option>
-        <option value="가정통신문" selected>
-          가정통신문
-        </option>
-      </select>
-      <RowCentered>
-        <label>{`${type} 제목`}</label>
-        <input
-          type="text"
-          name="title"
-          value={title}
+    <div className="notice_management">
+      <div className="select_box">
+        <Select
+          classNamePrefix="select_box"
+          inputId="select_box__options"
+          isSearchable={false}
+          options={options}
+          defaultValue={options[0]}
           onChange={(e) => {
-            setTitle(e.target.value);
+            setType(e.value);
+            console.log(type);
           }}
-        />
-      </RowCentered>
-      <Column>
-        <label>{`${type} 세부 내용`}</label>
-        <Editor
-          wrapperClassName="wrapper-class"
-          editorClassName="editor"
-          toolbarClassName="toolbar-class"
-          toolbar={{
-            list: { inDropdown: true },
-            textAlign: { inDropdown: true },
-            link: { inDropdown: true },
-            history: { inDropdown: false },
-          }}
-          placeholder="내용을 작성해주세요."
-          localization={{
-            locale: "ko",
-          }}
-          editorState={editorState}
-          onEditorStateChange={onEditorStateChange}
-        />
-      </Column>
+          className="select"
+        ></Select>
+      </div>
+      <SizedBox height="30px" />
+      <input
+        className="notice_management__input-title"
+        placeholder="제목을 입력하세요"
+        type="text"
+        name="title"
+        value={title}
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+      />
+      <SizedBox height="20px" />
+      <Editor
+        wrapperClassName="notice_management__wrapper-class"
+        editorClassName="notice_management__editor"
+        toolbarClassName="notice_management__toolbar-class"
+        toolbar={{
+          list: { inDropdown: true },
+          textAlign: { inDropdown: true },
+          link: { inDropdown: true },
+          history: { inDropdown: false },
+        }}
+        placeholder="내용을 작성해주세요."
+        localization={{
+          locale: "ko",
+        }}
+        editorState={editorState}
+        onEditorStateChange={onEditorStateChange}
+      />
       {type === "알림장" ? (
-        <input type="button" value="전송" onClick={uploadNotice} />
+        <input
+          type="button"
+          className="notice_management__submit-btn"
+          value="전송"
+          onClick={() => {
+            console.log("sex");
+            uploadNotice();
+          }}
+        />
       ) : (
-        <input type="button" value="전송" onClick={uploadNoticeForParent} />
+        <input
+          type="button"
+          className="notice_management__submit-btn"
+          value="전송"
+          onClick={uploadNoticeForParent}
+        />
       )}
     </div>
   );

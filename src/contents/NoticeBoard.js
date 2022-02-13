@@ -1,199 +1,100 @@
-import React, { useRef, useState } from "react";
-import pin from "../icons/pin.png";
-import { RowCentered, RowNormal, Column } from "../layout";
-import { firebaseStorage } from "../firebase";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
-import "react-notifications/lib/notifications.css";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-
-const { ipcRenderer } = window;
-const downloadsFolder = window.require("downloads-folder");
+import React from "react";
+import { RowCentered, RowNormal, Row, Column } from "../layout";
 
 const NoticeBoard = () => {
-  const [showStartCalendar, setShowStartCalendar] = useState(false);
-  const [dateStart, setDateStart] = useState(
-    new Date(Date.now()).toLocaleDateString()
-  );
-  const [showEndCalendar, setShowEndCalendar] = useState(false);
-  const [dateEnd, setDateEnd] = useState(
-    new Date(Date.now()).toLocaleDateString()
-  );
-
   return (
-    <div className="agreementBoard">
-      <NotificationContainer />
-      <Column>
-        <div className="agreementBoard-header">
-          <RowCentered>
-            <img
-              className="agreementBoard__image"
-              src={pin}
-              alt="pin-icon"
-              style={{ width: "2.8rem" }}
-            />
-            <div className="agreementBoard__title">가정통신문 자료실</div>
-          </RowCentered>
+    <div className="noticeBoard">
+      <Column
+        style={{
+          width: "100%",
+        }}
+      >
+        <div className="noticeBoard-header">
+          <Row>
+            <div className="noticeBoard__title">가정통신문 자료실</div>
+          </Row>
         </div>
-        <div className="agreementBoard-top_section">
-          <RowCentered>
-            <div className="agreementBoard-top_section-total">전체 1건</div>
-            <div className="agreementBoard-top_section-button-wrapper">
-              <span className="agreementBoard-top_section-button">글쓰기</span>
-            </div>
-          </RowCentered>
-        </div>
-        <div className="agreementBoard-content">
-          <Column>
-            <div className="agreementBoard-content__header">
-              <RowCentered>
-                <div className="agreementBoard-content__header_no">
-                  게시물 번호
-                </div>
-                <div className="vl-board-title"></div>
-                <div className="agreementBoard-content__header_title">제목</div>
-                <div className="vl-board-title"></div>
-                <div className="agreementBoard-content__header_writer">
-                  사용자 이름
-                </div>
-                <div className="vl-board-title"></div>
-                <div className="agreementBoard-content__header_date">
-                  게시날짜
-                </div>
-                <div className="vl-board-title"></div>
-                <div className="agreementBoard-content__header_views">
-                  조회수
-                </div>
-              </RowCentered>
-            </div>
-            <div className="agreementBoard-content__items">
-              <RowCentered>
-                <div className="agreementBoard-content__item-1_no">1</div>
-                <div className="vl-board"></div>
-                <div
-                  className="agreementBoard-content__item-1_title"
-                  onClick={async () => {
-                    const ref = await firebaseStorage.ref(
-                      "/board/agreement/sample.pdf"
-                    );
-                    const url = await ref.getDownloadURL();
-                    ipcRenderer.send("download", {
-                      url,
-                      properties: { directory: downloadsFolder() },
-                    });
-                    ipcRenderer.once("download complete", (event, filePath) => {
-                      console.log(filePath);
-                      NotificationManager.info(
-                        "다운로드 폴더에 성공적으로 가정통신문 파일이 저장되었습니다."
-                      );
-                    });
-                  }}
-                >
-                  가정통신문 예시입니다.
-                </div>
-                <div className="vl-board"></div>
-                <div className="agreementBoard-content__item-1_writer">
-                  이시우 선생님
-                </div>
-                <div className="vl-board"></div>
-                <div className="agreementBoard-content__item-1_date">
-                  2021-06-19
-                </div>
-                <div className="vl-board"></div>
-                <div className="agreementBoard-content__item-1_views">10</div>
-              </RowCentered>
-              <hr className="solid" />
-            </div>
-          </Column>
-        </div>
-        <div className="agreementBoard-bottom_section">
-          <RowNormal
-            style={{
-              justifyContent: "space-between",
+        <div className="noticeBoard-top_section">
+          <button
+            className="noticeBoard-top_section-button"
+            onClick={() => {
+              // const { BrowserWindow } = window.require("@electron/remote");
+              // let win = new BrowserWindow({
+              //   width: 600,
+              //   height: 800,
+              //   // resizable: false,
+              //   webPreferences: {
+              //     contextIsolation: false,
+              //     nodeIntegration: true,
+              //     enableRemoteModule: true,
+              //   },
+              // });
+              // // dev
+              // win.loadURL("http://localhost:3000/#/addBoard");
+              // production
+              //   win.loadFile("build/index.html", { hash: "#/chat" });
             }}
           >
-            <RowCentered>
-              <div className="agreementBoard-bottom_section-label">검색</div>
+            작성
+          </button>
+        </div>
+        <div className="noticeBoard-content">
+          <Column>
+            <div className="noticeBoard-content__header">
+              <RowCentered
+                style={{
+                  height: "2.5rem",
+                }}
+              >
+                <div className="noticeBoard-content__header_no">번호</div>
+                <div className="noticeBoard-content__header_title">제목</div>
+                <div className="noticeBoard-content__header_writer">작성자</div>
+                <div className="noticeBoard-content__header_date">게시일</div>
+                <div className="noticeBoard-content__header_views">조회수</div>
+              </RowCentered>
+            </div>
+            <div className="noticeBoard-content__items">{/** TODO*/}</div>
+          </Column>
+        </div>
+        <div className="noticeBoard-bottom_section">
+          <RowNormal
+            style={{
+              width: "80rem",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                margin: "0 auto",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <input
-                className="agreementBoard-bottom_section-input"
+                className="noticeBoard-bottom_section-input"
+                placeholder="내용을 검색하세요"
                 type="text"
               />
-            </RowCentered>
-            <RowNormal>
-              <Column className="agreementBoard-bottom_section-calendar-start">
-                <RowCentered>
-                  <div className="agreementBoard-bottom_section-calendar-start-label">
-                    시작일
-                  </div>
-                  <input
-                    className="agreementBoard-bottom_section-calendar-start-input"
-                    type="text"
-                    value={dateStart}
-                    onChange={(e) => {}}
-                    readOnly={true}
-                    onFocus={() => {
-                      if (showEndCalendar) {
-                        setShowEndCalendar(false);
-                      }
-                      setShowStartCalendar(true);
-                    }}
+              <button
+                style={{
+                  height: "39px",
+                  width: "50px",
+                  backgroundColor: "#697fef",
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="white"
+                    d="M9.145 18.29c-5.042 0-9.145-4.102-9.145-9.145s4.103-9.145 9.145-9.145 9.145 4.103 9.145 9.145-4.102 9.145-9.145 9.145zm0-15.167c-3.321 0-6.022 2.702-6.022 6.022s2.702 6.022 6.022 6.022 6.023-2.702 6.023-6.022-2.702-6.022-6.023-6.022zm9.263 12.443c-.817 1.176-1.852 2.188-3.046 2.981l5.452 5.453 3.014-3.013-5.42-5.421z"
                   />
-                </RowCentered>
-                {showStartCalendar ? (
-                  <Calendar
-                    className="agreementBoard-calendar-start"
-                    onClickDay={(d) => {
-                      if (new Date(d) > new Date(dateEnd)) {
-                        NotificationManager.warning(
-                          "시작일은 종료일과 같거나 보다 빨라야 합니다."
-                        );
-                        return;
-                      }
-                      setDateStart(new Date(d).toLocaleDateString());
-                      setShowStartCalendar(false);
-                    }}
-                  />
-                ) : null}
-              </Column>
-              <Column className="agreementBoard-bottom_section-calendar-end">
-                <RowCentered>
-                  <div className="agreementBoard-bottom_section-calendar-end-label">
-                    종료일
-                  </div>
-                  <input
-                    className="agreementBoard-bottom_section-calendar-start-input"
-                    type="text"
-                    value={dateEnd}
-                    onChange={(e) => {}}
-                    readOnly={true}
-                    onFocus={() => {
-                      if (showStartCalendar) {
-                        setShowStartCalendar(false);
-                      }
-                      setShowEndCalendar(true);
-                    }}
-                  />
-                </RowCentered>
-                {showEndCalendar ? (
-                  <Calendar
-                    className="agreementBoard-calendar-end"
-                    onClickDay={(d) => {
-                      if (new Date(d) < new Date(dateStart)) {
-                        NotificationManager.warning(
-                          "종료일은 시작일과 같거나 보다 늦어야 합니다."
-                        );
-                        return;
-                      }
-                      setDateEnd(new Date(d).toLocaleDateString());
-                      setShowEndCalendar(false);
-                    }}
-                  />
-                ) : null}
-              </Column>
-            </RowNormal>
+                </svg>
+              </button>
+            </div>
           </RowNormal>
         </div>
       </Column>
