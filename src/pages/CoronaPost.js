@@ -3,6 +3,11 @@ import { RowCentered, RowNormal, Column, SizedBox } from "../layout";
 
 import { connect } from "react-redux";
 
+<<<<<<< HEAD
+=======
+const isDev = window.require('electron-is-dev');
+
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 const ipcRenderer = window.require("electron").ipcRenderer;
 
 const CoronaPost = () => {
@@ -11,6 +16,10 @@ const CoronaPost = () => {
   useEffect(() => {
     ipcRenderer.send("open");
     ipcRenderer.once("on-data", (_, store) => {
+<<<<<<< HEAD
+=======
+      console.log(store);
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       Array.from(store).map((item) => setBoardArray((old) => [...old, item]));
     });
   }, []);
@@ -99,12 +108,22 @@ const CoronaPost = () => {
                             .catch(console.error);
                         });
                         // win.webContents.openDevTools();
+<<<<<<< HEAD
                         // dev
                         win.loadURL("http://localhost:3000/#/viewcoronapost");
                         // production
                         // win.loadFile("build/index.html", {
                         //   hash: "#/viewcoronapost",
                         // });
+=======
+                        if(isDev) {
+                          win.loadURL("http://localhost:3000/#/viewcoronapost");
+                        } else {
+                          win.loadFile("build/index.html", {
+                          hash: "#/viewcoronapost",
+                        });
+                        }
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
                       }}
                     >
                       {coronaN["제목"]}

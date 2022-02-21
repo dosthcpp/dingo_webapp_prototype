@@ -46,6 +46,7 @@ const MealPlanManagement = () => {
   const upload = async () => {
     try {
       const docs = (await firestore.collection("mealplan").get()).docs;
+<<<<<<< HEAD
       const users = (
         await firestore
           .collection("user")
@@ -59,6 +60,9 @@ const MealPlanManagement = () => {
       }
 
       let i = 0;
+=======
+      var i = 0;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       for (; i < docs.length; ++i) {
         const date =
           (await firestore.collection("mealplan").doc(docs[i].id).get()).data()[
@@ -102,7 +106,10 @@ const MealPlanManagement = () => {
         });
         firestore.collection("mealplan").add({
           date: selectedDay,
+<<<<<<< HEAD
           notified,
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
           content: {
             오전간식: {
               식단: breakfastMealPlanArr,
@@ -121,6 +128,32 @@ const MealPlanManagement = () => {
         clear();
         NotificationManager.info("식단이 성공적으로 업로드되었습니다.");
       }
+<<<<<<< HEAD
+=======
+      // for (var i = 0; i < snapshots.length; ++i) {
+      //   const albumList =
+      //     (
+      //       await firestore.collection("user").doc(snapshots[i].id).get()
+      //     ).data()["활동사진"] ?? [];
+      //   firestore
+      //     .collection("user")
+      //     .doc(snapshots[i].id)
+      //     .update({
+      //       활동사진: [
+      //         ...albumList,
+      //         {
+      //           title,
+      //           imageLocArray: fileNames,
+      //           contents: editorToHtml,
+      //           createdAt: new Date(Date.now()),
+      //         },
+      //       ],
+      //     });
+      // }
+      // setEditorState(EditorState.createEmpty());
+      // setTitle("");
+      // NotificationManager.info("활동사진이 성공적으로 업로드되었습니다.");
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     } catch (e) {
       console.log(e);
     }

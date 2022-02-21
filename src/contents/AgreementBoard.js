@@ -6,6 +6,11 @@ import { firestore } from "../firebase";
 import { connect, useDispatch, useSelector } from "react-redux";
 import { DID_FETCH_BOARD } from "../actions/types";
 
+<<<<<<< HEAD
+=======
+const isDev = window.require('electron-is-dev');
+
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 const AgreementBoard = ({
   didFetchBoard,
   fetchAgreementBoard,
@@ -70,10 +75,20 @@ const AgreementBoard = ({
               });
 
               // win.webContents.openDevTools();
+<<<<<<< HEAD
               // dev
               win.loadURL("http://localhost:3000/#/viewBoard");
               // production
               // win.loadFile("build/index.html", { hash: "#/viewBoard" });
+=======
+              if(isDev) {
+                win.loadURL("http://localhost:3000/#/viewBoard");
+              } else {
+                win.loadFile("build/index.html", {
+                hash: "#/viewBoard",
+              });
+              }
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
             }}
           >
             {title}
@@ -148,11 +163,17 @@ const AgreementBoard = ({
 
   useEffect(() => {
     setBoard(fetched);
+<<<<<<< HEAD
     Array.from(fetchedBoardList)
       .slice(0, 11)
       .forEach((boardList) => {
         setViews((old) => [...old, boardList["views"]]);
       });
+=======
+    Array.from(fetchedBoardList).forEach((boardList) => {
+      setViews((old) => [...old, boardList["views"]]);
+    });
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
   }, [fetchedBoardList, setBoardArray, board, setBoard, fetched]);
 
   // useEffect(() => {
@@ -201,6 +222,7 @@ const AgreementBoard = ({
                   enableRemoteModule: true,
                 },
               });
+<<<<<<< HEAD
               // win.webContents.openDevTools();
               window
                 .require("@electron/remote")
@@ -218,6 +240,15 @@ const AgreementBoard = ({
               });
               // production
               // win.loadFile("build/index.html", { hash: "#/addBoard" });
+=======
+              if(isDev) {
+                win.loadURL("http://localhost:3000/#/addBoard");
+              } else {
+                win.loadFile("build/index.html", {
+                hash: "#/addBoard",
+              });
+              }
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
             }}
           >
             작성

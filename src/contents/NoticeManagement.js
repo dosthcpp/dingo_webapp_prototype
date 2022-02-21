@@ -25,12 +25,16 @@ const NoticeManagement = () => {
       const editorToHtml = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
+<<<<<<< HEAD
       const docs = (
         await firestore
           .collection("user")
           .where("userType", "==", "학부모")
           .get()
       ).docs;
+=======
+      const docs = (await firestore.collection("user").get()).docs;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       for (let i = 0; i < docs.length; ++i) {
         console.log(docs[i].id);
         const agreementList =

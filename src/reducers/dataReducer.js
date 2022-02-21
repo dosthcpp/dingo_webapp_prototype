@@ -11,14 +11,20 @@ import {
   GET_GOV_NOTI,
   GET_CORONA_NOTI,
   GET_PM,
+<<<<<<< HEAD
   GET_CHILDLIST,
   GET_USERINFO,
   CLEAR_USERINFO,
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 } from "../actions/types";
 
 const INITIAL_STATE = {
   didFetchBoard: false,
+<<<<<<< HEAD
   userInfo: {},
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
   data: [],
   childList: [],
   agreement: [],
@@ -44,6 +50,10 @@ export const fetchReducer = (state = INITIAL_STATE, action) => {
       return { ...state, chatList: action.payload };
     case GET_AGREEMENT_BOARD:
       return { ...state, agreementBoard: action.payload };
+<<<<<<< HEAD
+=======
+    case GET_NOTIFY:
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     case ADD_NOTIFY:
       return {
         ...state,
@@ -62,8 +72,11 @@ export const fetchReducer = (state = INITIAL_STATE, action) => {
       return { ...state, coronaNoti: action.payload };
     case GET_PM:
       return { ...state, pm: action.payload };
+<<<<<<< HEAD
     case GET_CHILDLIST:
       return { ...state, childList: action.payload };
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     default:
       return state;
   }

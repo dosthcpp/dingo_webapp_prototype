@@ -2,10 +2,19 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Row, RowCentered, Column, SizedBox } from "../layout";
 import { getGovNoti, getCoronaNoti, getPm } from "../actions";
+<<<<<<< HEAD
 import { connect, useSelector } from "react-redux";
 import Chart from "react-apexcharts";
 import { ResizableBox } from "react-resizable";
 
+=======
+import { connect, useDispatch, useSelector } from "react-redux";
+import Chart from "react-apexcharts";
+import { ResizableBox } from "react-resizable";
+
+const isDev = window.require('electron-is-dev');
+
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 export const RC = styled.div`
   display: flex;
   flex-direction: row;
@@ -706,10 +715,20 @@ const DashBoard = ({ getGovNoti, getCoronaNoti, getPm, useLayout }) => {
                 .require("@electron/remote/main")
                 .enable(win.webContents);
               // win.webContents.openDevTools();
+<<<<<<< HEAD
               // dev
               win.loadURL("http://localhost:3000/#/govpost");
               // production
               // win.loadFile("build/index.html", { hash: "#/govpost" });
+=======
+              if(isDev) {
+                win.loadURL("http://localhost:3000/#/govpost");
+              } else {
+                win.loadFile("build/index.html", {
+                hash: "#/govpost",
+              });
+              }
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
             }}
           >
             더 보기
@@ -1118,10 +1137,20 @@ const DashBoard = ({ getGovNoti, getCoronaNoti, getPm, useLayout }) => {
                 event.sender.send("on-data", corona);
               });
               // win.webContents.openDevTools();
+<<<<<<< HEAD
               // dev
               win.loadURL("http://localhost:3000/#/coronapost");
               // production
               // win.loadFile("build/index.html", { hash: "#/coronapost" });
+=======
+              if(isDev) {
+                win.loadURL("http://localhost:3000/#/coronapost");
+              } else {
+                win.loadFile("build/index.html", {
+                hash: "#/coronapost",
+              });
+              }
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
             }}
           >
             더 보기

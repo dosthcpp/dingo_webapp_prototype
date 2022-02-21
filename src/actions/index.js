@@ -9,6 +9,7 @@ import {
   GET_GOV_NOTI,
   GET_CORONA_NOTI,
   GET_PM,
+<<<<<<< HEAD
   GET_CHILDLIST,
   ADD_NOTIFY_ERROR,
   GET_USERINFO,
@@ -58,6 +59,15 @@ export const fetchUserInfo = (email) => async (dispatch) => {
     console.log(e);
   }
 };
+=======
+} from "./types";
+import axios from "axios";
+import { firestore } from "../firebase";
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
+
+const baseUrl =
+  "http://ec2-52-68-10-27.ap-northeast-1.compute.amazonaws.com:5000";
+const testUrl = "http://korjarvis.asuscomm.com:5051/";
 
 export const fetchParentList = () => async (dispatch) => {
   try {
@@ -147,6 +157,65 @@ export const fetchChatList = () => async (dispatch) => {
 };
 
 export const fetchAgreementBoard = () => async (dispatch) => {
+<<<<<<< HEAD
+=======
+  try {
+    const agreementBoardList = [];
+    const snap = await firestore
+      .collection("agreementBoard")
+      .orderBy("date")
+      .get();
+    for (var i = snap.docs.length - 1; i >= 0; --i) {
+      agreementBoardList.push(snap.docs[i].data());
+    }
+    dispatch({
+      type: GET_AGREEMENT_BOARD,
+      payload: agreementBoardList,
+    });
+    // 요청 성공
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getGovNoti = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`${baseUrl}/govpost`);
+    dispatch({
+      type: GET_GOV_NOTI,
+      payload: res.data,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getPm = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`${testUrl}/api`);
+    dispatch({
+      type: GET_PM,
+      payload: res.data,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getCoronaNoti = () => async (dispatch) => {
+  try {
+    const res = await axios.get(`${baseUrl}/coronapost`);
+    dispatch({
+      type: GET_CORONA_NOTI,
+      payload: res.data,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const getNotifications = () => async (dispatch) => {
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
   try {
     const agreementBoardList = [];
     const snap = await firestore

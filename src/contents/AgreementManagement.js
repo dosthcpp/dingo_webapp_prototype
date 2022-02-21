@@ -5,13 +5,30 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import LinesEllipsis from "react-lines-ellipsis";
+<<<<<<< HEAD
 import { fetchParentList, fetchAgreementList } from "../actions";
+=======
+import {
+  fetchParentList,
+  fetchAgreementList,
+  getNotifications,
+  addNotifications,
+} from "../actions";
+
+const isDev = window.require('electron-is-dev');
+
+// const { ipcRenderer } = window.require("electron");
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 
 const AgreementManagement = ({
   fetchParentList,
   fetchAgreementList,
   fetchedParentList,
   fetchedAgreement,
+<<<<<<< HEAD
+=======
+  getNotifications,
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 }) => {
   const [selected, setSelected] = useState(0);
   const [selectedParent, setSelectedParent] = useState(null);
@@ -249,7 +266,11 @@ const AgreementManagement = ({
         <div className="agreementmanagement-div-5__container">
           <button
             onClick={() => {
+<<<<<<< HEAD
               const { BrowserWindow } = window.require("@electron/remote");
+=======
+              const { BrowserWindow } = window.require("electron").remote;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
               let win = new BrowserWindow({
                 width: 1200,
                 height: 1080,
@@ -260,6 +281,7 @@ const AgreementManagement = ({
                   enableRemoteModule: true,
                 },
               });
+<<<<<<< HEAD
               window
                 .require("@electron/remote")
                 .require("@electron/remote/main")
@@ -269,6 +291,15 @@ const AgreementManagement = ({
               // production
               // win.loadFile("build/index.html", { hash: "#/add" });
               // win.webContents.openDevTools();
+=======
+              if(isDev) {
+                win.loadURL("http://localhost:3000/#/add");
+              } else {
+                win.loadFile("build/index.html", {
+                hash: "#/add",
+              });
+              }
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
               win.on("close", () => {
                 const timer = setInterval(() => {
                   clearInterval(timer);

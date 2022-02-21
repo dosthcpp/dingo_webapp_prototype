@@ -104,10 +104,19 @@ const Chat = ({ fetchedChatList, fetchChatList, fetchUserInfo, userInfo }) => {
             <div
               className="message"
               style={{
+<<<<<<< HEAD
                 borderRadius: isNotMe
                   ? "20px 20px 20px 0px"
                   : "20px 20px 0px 20px",
                 backgroundColor: isNotMe ? "#474f54" : "#318cea",
+=======
+                borderRadius:
+                  chat["sender"] !== currentUser
+                    ? "20px 20px 20px 0px"
+                    : "20px 20px 0px 20px",
+                backgroundColor:
+                  chat["sender"] !== currentUser ? "#474f54" : "#318cea",
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
               }}
             >
               {chat["text"]}
@@ -131,6 +140,10 @@ const Chat = ({ fetchedChatList, fetchChatList, fetchUserInfo, userInfo }) => {
     const messageList = [];
     const chatList = Array.from(fetchedChatList);
     chatList.sort((a, b) => a["time"] > b["time"]);
+<<<<<<< HEAD
+=======
+    console.log(chatList); // 비동기 함수가 아니기 떄문에 chatlist를 Fetch하는 동안 먼저 console.log함수가 실행됨
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     for (var i = 0; i < chatList.length; ++i) {
       if (i === 0) {
         messageList.push(customDivider(new Date(chatList[i]["time"])));

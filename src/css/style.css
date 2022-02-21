@@ -31,6 +31,7 @@ body {
   position: absolute;
   top: 145px;
   left: 17.5rem; }
+<<<<<<< HEAD
 
 /* ANIMATIONS */
 /* Simple CSS3 Fade-in-down Animation */
@@ -134,6 +135,8 @@ body {
 
 .underlineHover:hover:after {
   width: 100%; }
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 
 .menu {
   position: relative;
@@ -173,7 +176,11 @@ body {
 .side-menu {
   float: left;
   background-color: #f2f3f4;
+<<<<<<< HEAD
   margin: 0 0 0 -14rem;
+=======
+  margin: 0 0 0 -14.0rem;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
   width: 17.5rem;
   height: 62rem; }
 
@@ -191,7 +198,11 @@ body {
     .id-div__content.email {
       font-size: 0.75rem; }
     .id-div__content.title {
+<<<<<<< HEAD
       font-size: 0.9rem;
+=======
+      font-size: 1.1rem;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       font-weight: 800; }
 
 .menu-div-1 {
@@ -427,7 +438,11 @@ hr.card-sep {
     font-size: 12px;
     color: grey; }
   .card__shift_noti_day-1 {
+<<<<<<< HEAD
     font-size: 12px;
+=======
+    font-size: 16px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     font-weight: 700;
     color: grey;
     align-self: flex-start; }
@@ -435,7 +450,11 @@ hr.card-sep {
     text-align: start;
     font-size: 12px; }
   .card__shift_noti_day-2 {
+<<<<<<< HEAD
     font-size: 12px;
+=======
+    font-size: 16px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     font-weight: 700;
     color: grey;
     align-self: flex-start; }
@@ -443,7 +462,11 @@ hr.card-sep {
     text-align: start;
     font-size: 12px; }
   .card__shift_noti_day-3 {
+<<<<<<< HEAD
     font-size: 12px;
+=======
+    font-size: 16px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     font-weight: 700;
     color: grey;
     align-self: flex-start; }
@@ -451,7 +474,11 @@ hr.card-sep {
     text-align: start;
     font-size: 12px; }
   .card__gov_noti-main-title-more {
+<<<<<<< HEAD
     font-size: small; }
+=======
+    font-size: 9px; }
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
   .card__gov_noti_item_title-1 {
     font-size: 14px;
     font-weight: 800;
@@ -513,6 +540,7 @@ hr.card-sep {
     font-size: 12px;
     color: grey; }
   .card__corona_noti-main-title-more {
+<<<<<<< HEAD
     font-size: small; }
   .card__daily_item_date-1 {
     font-size: 14px;
@@ -525,6 +553,20 @@ hr.card-sep {
     font-weight: 700; }
   .card__daily_item_date-4 {
     font-size: 14px;
+=======
+    font-size: 9px; }
+  .card__daily_item_date-1 {
+    font-size: 12px;
+    font-weight: 700; }
+  .card__daily_item_date-2 {
+    font-size: 12px;
+    font-weight: 700; }
+  .card__daily_item_date-3 {
+    font-size: 12px;
+    font-weight: 700; }
+  .card__daily_item_date-4 {
+    font-size: 12px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     font-weight: 700; }
   .card__daily_item_list-1-1 {
     font-size: 12px;
@@ -31702,7 +31744,11 @@ hr.card-sep {
   margin-top: 48px;
   margin-left: 5rem; }
   .my_profile__title {
+<<<<<<< HEAD
     width: 150px;
+=======
+    width: 200px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     font-size: 2rem;
     font-weight: 800; }
   .my_profile__circular_image img {
@@ -31720,6 +31766,7 @@ hr.card-sep {
     color: grey;
     font-weight: 300; }
 
+<<<<<<< HEAD
 .login_form {
   /* TABS */
   /* FORM TYPOGRAPHY*/ }
@@ -31820,6 +31867,8 @@ hr.card-sep {
     .login_form__input_section input:focus {
       outline: none; }
 
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 .drag-active {
   -webkit-user-drag: element; }
 

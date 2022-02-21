@@ -5,11 +5,17 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import { Column, Row } from "../layout";
+<<<<<<< HEAD
 import { DID_FETCH_BOARD } from "../actions/types";
 
 import $ from "jquery";
 import { parseDateForFirebaseWithoutTime } from "../utils";
 import { useDispatch } from "react-redux";
+=======
+
+import $ from "jquery";
+import { parseDateForFirebaseWithoutTime } from "../utils";
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 
 const AddBoard = () => {
   const [title, setTitle] = useState("");
@@ -19,7 +25,10 @@ const AddBoard = () => {
   };
   const [files, setFiles] = useState([]);
   const [previewURLs, setPreviewURLs] = useState([]);
+<<<<<<< HEAD
   const dispatch = useDispatch();
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 
   useEffect(() => {
     $("body").css("overflow-y", "scroll");
@@ -27,6 +36,10 @@ const AddBoard = () => {
 
   const uploadBoard = async () => {
     try {
+<<<<<<< HEAD
+=======
+      const win = window.require("electron").remote.getCurrentWindow();
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       const editorToHtml = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
@@ -64,9 +77,13 @@ const AddBoard = () => {
       });
       setEditorState(EditorState.createEmpty());
       setTitle("");
+<<<<<<< HEAD
       const remote = window.require("@electron/remote");
       let w = remote.getCurrentWindow();
       w.close();
+=======
+      win.close();
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     } catch (e) {
       console.log(e);
     }

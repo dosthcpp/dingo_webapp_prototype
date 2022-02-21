@@ -75,7 +75,11 @@ hr.card-sep {
   &__shift_noti {
     @for $i from 1 through 3 {
       &_day-#{$i} {
+<<<<<<< HEAD
         font-size: 12px;
+=======
+        font-size: 16px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
         font-weight: 700;
         color: grey;
         align-self: flex-start;
@@ -90,7 +94,11 @@ hr.card-sep {
 
   &__gov_noti {
     &-main-title-more {
+<<<<<<< HEAD
       font-size: small;
+=======
+      font-size: 9px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     }
 
     &_item {
@@ -126,7 +134,11 @@ hr.card-sep {
 
   &__corona_noti {
     &-main-title-more {
+<<<<<<< HEAD
       font-size: small;
+=======
+      font-size: 9px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     }
   }
 
@@ -135,7 +147,11 @@ hr.card-sep {
       &_date {
         @for $i from 1 through 4 {
           &-#{$i} {
+<<<<<<< HEAD
             font-size: 14px;
+=======
+            font-size: 12px;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
             font-weight: 700;
           }
         }

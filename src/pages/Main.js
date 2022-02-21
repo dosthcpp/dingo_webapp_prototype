@@ -31,6 +31,7 @@ const Main = ({ navNo, fetchAgreementList, addNotifications }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+<<<<<<< HEAD
     const unsubscribe = firestore
       .collection("user")
       .where("userType", "==", "학부모")
@@ -69,6 +70,39 @@ const Main = ({ navNo, fetchAgreementList, addNotifications }) => {
           }
         });
       });
+=======
+    const unsubscribe = firestore.collection("user").onSnapshot((snap) => {
+      snap.docChanges().forEach((change) => {
+        if (change.doc.data() !== null) {
+          const agreementList = Array.from(change.doc.data()["동의서"]);
+          for (var i = 0; i < agreementList.length; ++i) {
+            const agreement = agreementList[i];
+            if (
+              agreement["isAgreed"] !== null &&
+              agreement["hasNotified"] !== null &&
+              agreement["hasNotified"] === false &&
+              agreement["isAgreed"] === true
+            ) {
+              const noti = `${change.doc.data()["부모님 성함"]} 학부모님께서 ${
+                change.doc.data()["원아 이름"]
+              } 원아의 ${agreementList[i]["title"]}에 동의하셨습니다.`;
+              agreementList[i]["hasNotified"] = true;
+              firestore
+                .collection("user")
+                .doc(change.doc.id)
+                // current user
+                .update({ 동의서: agreementList });
+
+              addNotifications(noti);
+              dispatch(fetchAgreementList);
+              // raise notification event
+              NotificationManager.info(noti);
+            }
+          }
+        }
+      });
+    });
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     return unsubscribe;
   }, [addNotifications, dispatch, fetchAgreementList]);
 

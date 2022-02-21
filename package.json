@@ -11,10 +11,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+<<<<<<< HEAD
     "rs": "set BROWSER=none && set PORT=3000 && yarn start",
     "es": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
     "cs": "node-sass sass/main.scss src/css/style.css -w",
     "dev": "concurrently \"yarn cs\" \"yarn es\" \"yarn rs\"",
+=======
+    "rs": "SET BROWSER=none && SET PORT=3000 && yarn start",
+    "es": "SET ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "cs": "node-sass sass/main.scss src/css/style.css -w",
+    "dev": "SET ELECTRON_IS_DEV=1 && concurrently \"yarn cs\" \"yarn es\" \"yarn rs\"",
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     "electron-pack": "npm run-script build && electron-builder build -c.extraMetadata.main=build/electron.js"
   },
   "build": {
@@ -38,14 +45,20 @@
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "apexcharts": "^3.33.0",
+<<<<<<< HEAD
     "auth0-js": "^9.19.0",
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     "axios": "^0.24.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^27.4.5",
     "babel-loader": "8.2.3",
     "babel-plugin-named-asset-import": "^0.3.8",
     "babel-preset-react-app": "^10.0.1",
+<<<<<<< HEAD
     "beautiful-react-hooks": "^1.2.0",
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     "bfj": "^7.0.2",
     "camelcase": "^6.3.0",
     "case-sensitive-paths-webpack-plugin": "2.4.0",
@@ -117,7 +130,10 @@
     "ts-pnp": "1.2.0",
     "urijs": "^1.19.8",
     "url-loader": "4.1.1",
+<<<<<<< HEAD
     "uuid": "^8.3.2",
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     "webpack": "5.65.0",
     "webpack-dev-server": "4.7.2",
     "webpack-manifest-plugin": "4.0.2",

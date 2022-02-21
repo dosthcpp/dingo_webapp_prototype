@@ -10,9 +10,12 @@ export const GET_GOV_NOTI = "GET_GOV_NOTI";
 export const GET_CORONA_NOTI = "GET_CORONA_NOTI";
 export const GET_PM = "GET_PM";
 export const USE_LAYOUT = "USE_LAYOUT";
+<<<<<<< HEAD
 export const GET_CHILDLIST = "GET_CHILDLIST";
 export const ADD_NOTIFY_ERROR = "ADD_NOTIFY_ERROR";
 export const GET_USERINFO = "GET_USERINFO";
 export const CLEAR_USERINFO = "CLEAR_USERINFO";
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 
 export const NAV = "NAV";

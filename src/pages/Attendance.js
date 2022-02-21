@@ -7,7 +7,10 @@ import Calendar from "react-calendar";
 import { firestore } from "../firebase";
 import { parseDateForFirebaseWithoutTime } from "../utils";
 import { NotificationManager } from "react-notifications";
+<<<<<<< HEAD
 import { connect } from "react-redux";
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 
 const Attendance = ({ fetchedChildList, fetchChildList }) => {
   const [selected, setSelected] = useState(0);
@@ -19,15 +22,22 @@ const Attendance = ({ fetchedChildList, fetchChildList }) => {
     name: "결석",
   });
   const kindgartenList = ["새싹반", "햇님반", "달님반"];
+<<<<<<< HEAD
+=======
+  const childList = ["백도연", "테테테", "박부박"];
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
   const options = [
     { value: "출석", name: "출석" },
     { value: "결석", name: "결석" },
   ];
 
+<<<<<<< HEAD
   useEffect(() => {
     fetchChildList();
   }, [fetchChildList]);
 
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
   const dateDisplay = (_date) => {
     return `${_date.getFullYear()}년 ${
       _date.getMonth() + 1
@@ -174,7 +184,11 @@ const Attendance = ({ fetchedChildList, fetchChildList }) => {
                         ++i
                       ) {}
                       if (i >= _len) {
+<<<<<<< HEAD
                         await firestore.collection("attendance").add({
+=======
+                        firestore.collection("attendance").add({
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
                           "원아 이름": selectedName,
                           출석: status,
                           날짜: selectedDay,

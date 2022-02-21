@@ -19,6 +19,7 @@ const DailyManagement = () => {
   const uploadDaily = async () => {
     try {
       const docs = (await firestore.collection("daily").get()).docs;
+<<<<<<< HEAD
       const users = (
         await firestore
           .collection("user")
@@ -32,6 +33,9 @@ const DailyManagement = () => {
       }
 
       let i = 0;
+=======
+      var i = 0;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       for (; i < docs.length; ++i) {
         const date =
           (await firestore.collection("daily").doc(docs[i].id).get()).data()[
@@ -48,7 +52,10 @@ const DailyManagement = () => {
       } else {
         firestore.collection("daily").add({
           date: selectedDay,
+<<<<<<< HEAD
           notified,
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
           content: dailyArr,
         });
         setDailyArr([]);

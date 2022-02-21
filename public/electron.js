@@ -40,6 +40,13 @@ function createWindow() {
   /*
    * startUrl에 배정되는 url을 맨 위에서 생성한 BrowserWindow에서 실행시킵니다.
    * */
+  /*
+  if(isDev) {
+    win.loadURL(startUrl);
+  } else {
+    win.loadFile("build/index.html");
+  }
+  */
   win.loadURL(startUrl);
   // ipcMain.on("download", (event, info) => {
   //   download(BrowserWindow.getFocusedWindow(), info.url, info.properties).then(

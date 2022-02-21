@@ -4,6 +4,11 @@ import { RowCentered, RowNormal, Column, SizedBox } from "../layout";
 
 import { connect, useSelector } from "react-redux";
 
+<<<<<<< HEAD
+=======
+const isDev = window.require('electron-is-dev');
+
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 const GovPost = ({ getGovNoti }) => {
   const [boardArray, setBoardArray] = useState([]);
   const fetched = useSelector((state) => state.fetch.govNoti);
@@ -103,12 +108,22 @@ const GovPost = ({ getGovNoti }) => {
                             .catch(console.error);
                         });
                         // win.webContents.openDevTools();
+<<<<<<< HEAD
                         // dev
                         win.loadURL("http://localhost:3000/#/viewgovpost");
                         // production
                         // win.loadFile("build/index.html", {
                         //   hash: "#/viewgovpost",
                         // });
+=======
+                        if(isDev) {
+                          win.loadURL("http://localhost:3000/#/viewgovpost");
+                        } else {
+                          win.loadFile("build/index.html", {
+                          hash: "#/viewgovpost",
+                        });
+                        }
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
                       }}
                     >
                       {govN["제목"]}

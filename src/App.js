@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
+=======
+import React from "react";
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 import { Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import Chat from "./pages/Chat";
@@ -10,20 +14,26 @@ import GovPost from "./pages/GovPost";
 import ViewGovPost from "./pages/ViewGovPost";
 import CoronaPost from "./pages/CoronaPost";
 import ViewCoronaPost from "./pages/ViewCoronaPost";
+<<<<<<< HEAD
 import ViewConsentForm from "./pages/ViewConsentForm";
 import { connect } from "react-redux";
 import { getNotifications } from "./actions";
 import { useTimeout } from "beautiful-react-hooks";
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 
 import "./css/style.css";
 import "react-resizable/css/styles.css";
 import "react-calendar/dist/Calendar.css";
 import "react-notifications/lib/notifications.css";
+<<<<<<< HEAD
 
 const App = ({ getNotifications }) => {
   useTimeout(() => {
     getNotifications();
   }, 2000);
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 
   return (
     <Routes>
@@ -37,7 +47,10 @@ const App = ({ getNotifications }) => {
       <Route exact path="/viewgovpost" element={<ViewGovPost />} />
       <Route exact path="/coronapost" element={<CoronaPost />} />
       <Route exact path="/viewcoronapost" element={<ViewCoronaPost />} />
+<<<<<<< HEAD
       <Route exact path="/viewconsentform" element={<ViewConsentForm />} />
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     </Routes>
   );
 };

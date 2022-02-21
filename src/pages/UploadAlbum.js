@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 import { firestore, firebaseStorage } from "../firebase";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
@@ -21,7 +25,11 @@ const UploadAlbum = () => {
       const editorToHtml = draftToHtml(
         convertToRaw(editorState.getCurrentContent())
       );
+<<<<<<< HEAD
       const snapshots = (await firestore.collection("user").where("userType", "==", "학부모").get()).docs;
+=======
+      const snapshots = (await firestore.collection("user").get()).docs;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       const filePath = "/album/희망반/2022-01-01";
       const length = (await firebaseStorage.ref(filePath).listAll()).prefixes
         .length;
@@ -51,15 +59,21 @@ const UploadAlbum = () => {
                 createdAt: new Date(Date.now()),
               },
             ],
+<<<<<<< HEAD
             lastUpdate: {
               updated: "활동사진",
               time: new Date(Date.now()),
             },
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
           });
       }
       setEditorState(EditorState.createEmpty());
       setTitle("");
+<<<<<<< HEAD
       setFiles([]);
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       NotificationManager.info("활동사진이 성공적으로 업로드되었습니다.");
     } catch (e) {
       console.log(e);
@@ -136,13 +150,20 @@ const UploadAlbum = () => {
           }}
         ></input>
       </Column>
+<<<<<<< HEAD
+=======
+      <Row>{profile_preview}</Row>
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       <input
         type="button"
         value="전송"
         className="upload_album__submit-btn"
         onClick={uploadNotice}
       />
+<<<<<<< HEAD
       <Row>{profile_preview}</Row>
+=======
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
     </div>
   );
 };

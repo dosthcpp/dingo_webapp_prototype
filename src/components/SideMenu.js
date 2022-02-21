@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
+<<<<<<< HEAD
 import { connect, useDispatch } from "react-redux";
 import { Column, Row } from "../layout";
+=======
+import { useDispatch } from "react-redux";
+import { Column, Row, RowCentered, SizedBox } from "../layout";
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
 import { NAV } from "../actions/types";
 import { authService, firebaseStorage, firestore } from "../firebase";
 import { fetchUserInfo } from "../actions";
@@ -9,6 +14,13 @@ import { CLEAR_USERINFO } from "../actions/types";
 const SideMenu = ({ fetchUserInfo, userInfo }) => {
   const [click, setClick] = useState(Array(4).fill(false));
 
+<<<<<<< HEAD
+=======
+const isDev = window.require('electron-is-dev');
+
+const SideMenu = () => {
+  const [click, setClick] = useState(Array(4).fill(false));
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
   const dispatch = useDispatch();
 
   const collapseable = <span className="menu-list-collapseable">&#9656;</span>;
@@ -78,6 +90,7 @@ const SideMenu = ({ fetchUserInfo, userInfo }) => {
                     <li
                       className={`menu-list submenu-item-${idx + 1}`}
                       onClick={() => {
+<<<<<<< HEAD
                         console.log(authService().currentUser);
                         if (authService().currentUser !== null) {
                           switch (curMenu) {
@@ -178,6 +191,97 @@ const SideMenu = ({ fetchUserInfo, userInfo }) => {
                             null,
                             getOptions("먼저 로그인해주세요.")
                           );
+=======
+                        console.log(curMenu);
+                        switch (curMenu) {
+                          case "출석부":
+                            dispatch({
+                              type: NAV,
+                              payload: 1,
+                            });
+                            break;
+                          case "동의서 관리":
+                            dispatch({
+                              type: NAV,
+                              payload: 2,
+                            });
+                            break;
+                          case "가정통신문 및 알림장 작성":
+                            dispatch({
+                              type: NAV,
+                              payload: 3,
+                            });
+                            break;
+                          case "학부모 상담":
+                            const { BrowserWindow } =
+                              window.require("@electron/remote");
+                            const remoteMain = window.require(
+                              "@electron/remote/main"
+                            );
+                            let win = new BrowserWindow({
+                              width: 600,
+                              height: 800,
+                              resizable: true,
+                              webPreferences: {
+                                contextIsolation: false,
+                                nodeIntegration: true,
+                                enableRemoteModule: true,
+                              },
+                            });
+                            if(isDev) {
+                              win.loadURL("http://localhost:3000/#/chat");
+                            } else {
+                              win.loadFile("build/index.html", {
+                              hash: "#/chat",
+                            });
+                            }
+                            remoteMain.enable(win.webContents);
+                            break;
+                          case "활동사진 업로드":
+                            dispatch({
+                              type: NAV,
+                              payload: 5,
+                            });
+                            break;
+                          case "동의서":
+                            dispatch({
+                              type: NAV,
+                              payload: 6,
+                            });
+                            break;
+                          case "가정통신문":
+                            dispatch({
+                              type: NAV,
+                              payload: 7,
+                            });
+                            break;
+                          case "학습자료":
+                            dispatch({
+                              type: NAV,
+                              payload: 8,
+                            });
+                            break;
+                          case "기타":
+                            dispatch({
+                              type: NAV,
+                              payload: 9,
+                            });
+                            break;
+                          case "일정관리":
+                            dispatch({
+                              type: NAV,
+                              payload: 10,
+                            });
+                            break;
+                          case "식단표 업로드":
+                            dispatch({
+                              type: NAV,
+                              payload: 11,
+                            });
+                            break;
+                          default:
+                            break;
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
                         }
                       }}
                     >
@@ -237,6 +341,7 @@ const SideMenu = ({ fetchUserInfo, userInfo }) => {
   return (
     <div className="side-menu">
       <div className="menu-div-1">
+<<<<<<< HEAD
         <Row
           style={{
             justifyContent: "space-between",
@@ -299,6 +404,39 @@ const SideMenu = ({ fetchUserInfo, userInfo }) => {
             <div />
           )}
         </Row>
+=======
+        <Column>
+          <div
+            onClick={() => {
+              const { BrowserWindow } = window.require("@electron/remote");
+              const remoteMain = window.require("@electron/remote/main");
+              let win = new BrowserWindow({
+                width: 600,
+                height: 800,
+                // resizable: false,
+                webPreferences: {
+                  contextIsolation: false,
+                  nodeIntegration: true,
+                  enableRemoteModule: true,
+                },
+              });
+              // win.webContents.openDevTools();
+              if(isDev) {
+                win.loadURL("http://localhost:3000/#/login");
+              } else {
+                win.loadFile("build/index.html", {
+                hash: "#/login",
+              });
+              }
+              remoteMain.enable(win.webContents);
+            }}
+            className="id-div__content title"
+          >
+            새싹 유치원
+          </div>
+          <div className="id-div__content email">abcd1234@gmail.com</div>
+        </Column>
+>>>>>>> 33b3bb6acec34fbfe9f0af0896788aa92c130329
       </div>
       <div className="menu-div-2">
         <div className="menu-item">
