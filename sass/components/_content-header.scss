@@ -1,0 +1,79 @@
+.content-header {
+  &__wpr {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 64px;
+    margin: 0;
+  }
+
+  &__item {
+    @for $i from 1 through 3 {
+      &-#{$i} {
+        white-space: nowrap;
+        margin-top: 1.5rem;
+      }
+    }
+    &-2 {
+      width: 30px;
+    }
+  }
+
+  &__badge {
+    position: absolute !important;
+    top: -30px !important;
+    left: 25px !important;
+  }
+}
+
+.menuitem {
+  top: 50%;
+  &-popover {
+    position: absolute;
+    right: -10px;
+    top: 9vh;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 50;
+    height: 20rem;
+    width: 18rem;
+    background-color: white;
+    transform: translate(0, 10px);
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    &::before {
+      // 삼각형
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: 1.1rem;
+      top: -8px;
+      border-style: solid;
+      border-width: 0 10px 10px 10px;
+      border-color: transparent transparent #fff transparent;
+      transition-duration: 0.3s;
+      transition-property: transform;
+    }
+  }
+
+  &-wpr &-popover {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 2s;
+  }
+
+  &-wpr {
+    position: relative;
+    white-space: nowrap;
+    width: 30px;
+  }
+
+  &-wpr:hover &-popover,
+  &-wpr:active &-popover &-wpr:focus &-popover {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1000;
+    transform: translate(0, -20px);
+    transition: all 0.5s ease-in;
+  }
+}

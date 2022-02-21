@@ -1,0 +1,218 @@
+.attendance {
+  position: absolute;
+  background-color: white;
+  width: 102.5rem;
+  height: 62rem;
+
+  & .classname {
+    float: left;
+    border: 0.5px solid lightgray;
+    padding: 1rem 1.7rem;
+
+    &:not(:first-child) {
+      margin-left: 2px;
+    }
+  }
+
+  &__image {
+    float: left;
+  }
+  &__title {
+    float: left;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-left: 5px;
+    margin-top: 3px;
+  }
+
+  &-div-1 {
+    margin-top: 3rem;
+    margin-left: 5rem;
+  }
+
+  &-div-2 {
+    position: absolute;
+    float: none;
+    top: 8rem;
+    left: 5rem;
+  }
+
+  &-div-3 {
+    position: absolute;
+    float: none;
+    top: 14rem;
+    left: 5rem;
+    height: 30rem;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+
+  &__parent-list {
+    &-title {
+      padding: 1rem 11.7rem 1rem 1.5rem;
+      border-top: 3px solid lightgray;
+      border-bottom: 3px solid lightgray;
+      &.fixed {
+        display: flex;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &-items {
+      height: 26.5rem;
+      overflow: auto;
+      overflow-y: none;
+    }
+
+    &-item {
+      padding: 1rem 11.7rem 1rem 1.5rem;
+
+      & + & {
+        border-top: 0.5px solid lightgray;
+      }
+
+      &-button {
+        position: absolute;
+        float: left;
+        @for $i from 0 through 1000 {
+          &-#{$i} {
+            width: 4.5rem;
+            background-color: white;
+            float: right;
+            padding: 0.3rem 0 0.3rem;
+            margin-right: 1rem;
+            transform: translateX(11.5rem) translateY(-1.6rem);
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  &-div-4 {
+    position: absolute;
+    top: 8rem;
+    left: 30rem;
+    height: 30rem;
+
+    &__header {
+      background-color: #f4f4f6;
+      border: 2.5px solid lightgray;
+      width: 30rem;
+      height: 5rem;
+    }
+
+    &__title {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    &__subtitle {
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      font-size: 0.8rem;
+      overflow: hidden;
+      color: gray;
+    }
+
+    &__items {
+      height: 30rem;
+      border: 2.5px solid lightgray;
+    }
+
+    &__container {
+      margin: 1rem 2rem 0 2rem;
+    }
+
+    &__item {
+      @for $i from 0 through 1000 {
+        &-#{$i} {
+          position: relative;
+          border: 3px solid lightgray;
+          border-radius: 1rem;
+          width: 12rem;
+          height: 7.5rem;
+          @if $i % 2 == 0 {
+            float: left;
+          } @else if $i % 2 == 1 {
+            float: right;
+          }
+        }
+      }
+      &-title {
+        margin-top: 1rem;
+        margin-left: 0.8rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      &-subtitle {
+        margin-top: 0.3rem;
+        margin-left: 0.8rem;
+        font-size: 0.6rem;
+        color: gray;
+      }
+
+      &-date {
+        margin-top: 0.2rem;
+        margin-left: 0.8rem;
+        font-size: 0.5rem;
+      }
+
+      &-image {
+        position: absolute;
+        left: 0.25rem;
+        bottom: 0.3rem;
+      }
+
+      &-icon-container {
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        left: 0.5rem;
+        bottom: 0.3rem;
+        border-radius: 50%;
+      }
+
+      &-more {
+        color: CornflowerBlue;
+        font-size: 0.5rem;
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+      }
+    }
+  }
+
+  &-div-5 {
+    &__container {
+      position: relative;
+      margin-left: 57rem;
+      margin-top: 44rem;
+      float: none;
+    }
+  }
+
+  &-calendar {
+    margin-top: 20px;
+    width: 28rem !important;
+    &-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-status {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width: 28rem;
+      height: 8rem;
+    }
+  }
+}

@@ -1,0 +1,204 @@
+.dashboard {
+  background-color: white;
+  width: 102.5rem;
+  height: 62rem;
+}
+
+hr.card-sep {
+  border-top: 0.3px solid #bbb;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.card {
+  // -webkit-user-drag: element;
+  background-color: white;
+  display: inline-block;
+  padding: 30px 20px;
+  margin: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+
+  &__impNoti,
+  &__kind_noti,
+  &__shift_noti,
+  &__gov_noti,
+  &__daily,
+  &__work_check,
+  &__corona,
+  &__service_center {
+    position: absolute;
+    &-title {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    &.react-resizable {
+      position: absolute;
+    }
+  }
+
+  &__impNoti,
+  &__kind_noti,
+  &__work_check {
+    &_item {
+      &_title {
+        @for $i from 1 through 6 {
+          &-#{$i} {
+            font-size: 14px;
+            font-weight: 800;
+            color: grey;
+          }
+        }
+      }
+
+      &_time {
+        @for $i from 1 through 6 {
+          &-#{$i} {
+            font-size: 9px;
+          }
+        }
+      }
+
+      &_content {
+        @for $i from 1 through 6 {
+          &-#{$i} {
+            margin-top: 8px;
+            font-size: 12px;
+            color: grey;
+          }
+        }
+      }
+    }
+  }
+
+  &__shift_noti {
+    @for $i from 1 through 3 {
+      &_day-#{$i} {
+        font-size: 12px;
+        font-weight: 700;
+        color: grey;
+        align-self: flex-start;
+      }
+
+      &_self-#{$i} {
+        text-align: start;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__gov_noti {
+    &-main-title-more {
+      font-size: small;
+    }
+
+    &_item {
+      &_title {
+        @for $i from 1 through 6 {
+          &-#{$i} {
+            font-size: 14px;
+            font-weight: 800;
+            color: grey;
+          }
+        }
+      }
+
+      &_time {
+        @for $i from 1 through 6 {
+          &-#{$i} {
+            font-size: 9px;
+          }
+        }
+      }
+
+      &_content {
+        @for $i from 1 through 6 {
+          &-#{$i} {
+            margin-top: 8px;
+            font-size: 12px;
+            color: grey;
+          }
+        }
+      }
+    }
+  }
+
+  &__corona_noti {
+    &-main-title-more {
+      font-size: small;
+    }
+  }
+
+  &__daily {
+    &_item {
+      &_date {
+        @for $i from 1 through 4 {
+          &-#{$i} {
+            font-size: 14px;
+            font-weight: 700;
+          }
+        }
+      }
+
+      &_list {
+        @for $i from 1 through 4 {
+          @for $j from 1 through 2 {
+            &-#{$i}-#{$j} {
+              font-size: 12px;
+              color: grey;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__service_center {
+    &-message_stream {
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    &-input {
+      background-color: #f2f1f1;
+      height: 40px;
+      border-radius: 8px;
+      text-indent: 10px;
+      width: 300px;
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+    &-message_bubble {
+      &-chatbot {
+        position: relative;
+        width: 150px;
+        background-color: #83abe6;
+        color: white;
+        padding: 10px 8px 10px;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        margin-left: 2px;
+      }
+      &-me {
+        word-break: break-all;
+        width: fit-content;
+        position: relative;
+        background-color: grey;
+        color: white;
+        padding: 10px 8px 10px;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        margin-left: 2px;
+      }
+    }
+  }
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}

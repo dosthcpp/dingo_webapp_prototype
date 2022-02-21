@@ -1,0 +1,116 @@
+.side-menu {
+  float: left;
+  background-color: #f2f3f4;
+  margin: 0 0 0 -14rem;
+  width: 17.5rem;
+  height: 62rem;
+}
+
+.submenu {
+  list-style: none;
+  margin-left: -1rem;
+}
+
+.id-div {
+  margin: 0;
+  padding: 0;
+  width: 10.5rem;
+  padding: 1rem 0.5rem;
+  &__content {
+    float: left;
+
+    &.email {
+      font-size: 0.75rem;
+    }
+
+    &.title {
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+  }
+}
+
+.menu-div {
+  &-1 {
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+
+  &-2 {
+    margin-top: 3rem;
+    padding: 0 1rem;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+  }
+
+  &-3 {
+    margin-top: 2rem;
+    padding-left: 1rem;
+  }
+
+  &-4 {
+    margin-top: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+.menu-list {
+  padding: 3px 0;
+
+  @for $i from 0 through 3 {
+    &-#{$i} {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+      margin: 0.8rem auto;
+    }
+  }
+
+  &-collapseable {
+    font-size: 1rem;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  &-noncollapseable {
+    font-size: 1.1rem;
+    margin-left: -0.5rem;
+    margin-right: 0.4rem;
+  }
+}
+
+.menu-no-3 {
+  list-style: none;
+  margin-left: -1rem;
+}
+
+li.menu-item {
+  position: relative;
+  height: 1.2rem;
+  justify-content: center;
+  list-style: none;
+  float: none;
+  margin: 0.8rem auto;
+}
+
+.menu-title {
+  //   border: 1px solid black;
+  padding: 0.35rem 1rem;
+}
+
+.quick-func--div {
+  &__content {
+    float: left;
+  }
+}
+
+.title,
+.email {
+  padding: 0 0.75rem 0;
+}
